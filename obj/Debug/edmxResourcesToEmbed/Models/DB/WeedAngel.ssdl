@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WeedAngelModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="WeedAngelModelStoreContainer">
+    <EntitySet Name="Dispensary" EntityType="WeedAngelModel.Store.Dispensary" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Doctor" EntityType="WeedAngelModel.Store.Doctor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pictures" EntityType="WeedAngelModel.Store.Pictures" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="WeedAngelModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="WeedAngelModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Video" EntityType="WeedAngelModel.Store.Video" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Dispensary_ToUser" Association="WeedAngelModel.Store.FK_Dispensary_ToUser">
+      <End Role="User" EntitySet="User" />
+      <End Role="Dispensary" EntitySet="Dispensary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doctor_ToUser" Association="WeedAngelModel.Store.FK_Doctor_ToUser">
+      <End Role="User" EntitySet="User" />
+      <End Role="Doctor" EntitySet="Doctor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pictures_ToDispensary" Association="WeedAngelModel.Store.FK_Pictures_ToDispensary">
+      <End Role="Dispensary" EntitySet="Dispensary" />
+      <End Role="Pictures" EntitySet="Pictures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Video_ToDispensary" Association="WeedAngelModel.Store.FK_Video_ToDispensary">
+      <End Role="Dispensary" EntitySet="Dispensary" />
+      <End Role="Video" EntitySet="Video" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Dispensary">
+    <Key>
+      <PropertyRef Name="DispensaryId" />
+    </Key>
+    <Property Name="DispensaryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DispensaryName" Type="nvarchar(max)" />
+    <Property Name="Street" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="Zipcode" Type="nvarchar" MaxLength="50" />
+    <Property Name="RegionId" Type="int" />
+    <Property Name="TimeZoneId" Type="int" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Website" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="AvatarName" Type="nvarchar(max)" />
+    <Property Name="AvatarPath" Type="nvarchar(max)" />
+    <Property Name="Facebook" Type="nvarchar(max)" />
+    <Property Name="Twitter" Type="nvarchar(max)" />
+    <Property Name="Instagram" Type="nvarchar(max)" />
+    <Property Name="IntroBody" Type="nvarchar(max)" />
+    <Property Name="Body" Type="nvarchar(max)" />
+    <Property Name="IsHandicap" Type="bit" />
+    <Property Name="IsSecurityGuard" Type="bit" />
+    <Property Name="IsLounge" Type="bit" />
+    <Property Name="IsCreditCards" Type="bit" />
+    <Property Name="Is18" Type="bit" />
+    <Property Name="Is21" Type="bit" />
+    <Property Name="IsPictures" Type="bit" />
+    <Property Name="IsVideos" Type="bit" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="SunDayOpen" Type="nvarchar" MaxLength="50" />
+    <Property Name="SunDayClose" Type="nvarchar" MaxLength="50" />
+    <Property Name="MonDayOpen" Type="nvarchar" MaxLength="50" />
+    <Property Name="MonDayClose" Type="nvarchar" MaxLength="50" />
+    <Property Name="TuesDayOpen" Type="nvarchar" MaxLength="50" />
+    <Property Name="TuesDayClose" Type="nvarchar" MaxLength="50" />
+    <Property Name="WednesDayOpen" Type="nvarchar" MaxLength="50" />
+    <Property Name="WednesDayClose" Type="nvarchar" MaxLength="50" />
+    <Property Name="ThursDayOpen" Type="nvarchar" MaxLength="50" />
+    <Property Name="ThursDayClose" Type="nvarchar" MaxLength="50" />
+    <Property Name="FriDayOpen" Type="nvarchar" MaxLength="50" />
+    <Property Name="FriDayClose" Type="nvarchar" MaxLength="50" />
+    <Property Name="SaturDayOpen" Type="nvarchar" MaxLength="50" />
+    <Property Name="SaturDayClose" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="DoctorId" />
+    </Key>
+    <Property Name="DoctorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DoctorName" Type="nvarchar(max)" />
+    <Property Name="Street" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="Zipcode" Type="nvarchar" MaxLength="50" />
+    <Property Name="RegionId" Type="int" />
+    <Property Name="TimeZoneId" Type="int" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Website" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="AvatarName" Type="nvarchar(max)" />
+    <Property Name="AvatarPath" Type="nvarchar(max)" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsHandicap" Type="bit" />
+    <Property Name="IsSecurityGuard" Type="bit" />
+    <Property Name="IsCreditCards" Type="bit" />
+    <Property Name="Is18" Type="bit" />
+    <Property Name="Is21" Type="bit" />
+    <Property Name="IntroBody" Type="nvarchar(max)" />
+    <Property Name="Body" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="Pictures">
+    <Key>
+      <PropertyRef Name="PictureId" />
+    </Key>
+    <Property Name="PictureId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PictureName" Type="nvarchar(max)" />
+    <Property Name="PicturePath" Type="nvarchar(max)" />
+    <Property Name="DispensaryId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="FullName" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="ActivationCode" Type="nvarchar(max)" />
+    <Property Name="RequestedActivationDate" Type="datetime" />
+    <Property Name="ProfileImageName" Type="nvarchar(max)" />
+    <Property Name="ProfileImagePath" Type="nvarchar(max)" />
+    <Property Name="State" Type="nvarchar(max)" />
+    <Property Name="Zipcode" Type="nvarchar(max)" />
+    <Property Name="RegionId" Type="int" />
+    <Property Name="Facebook" Type="nvarchar(max)" />
+    <Property Name="Twitter" Type="nvarchar(max)" />
+    <Property Name="Instagram" Type="nvarchar(max)" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaritalStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar(max)" />
+    <Property Name="FavWayToGetHigh" Type="nvarchar(max)" />
+    <Property Name="FavDispensory" Type="nvarchar(max)" />
+    <Property Name="FavStrains" Type="nvarchar(max)" />
+    <Property Name="AboutMe" Type="nvarchar(max)" />
+    <Property Name="TellForGetHigh" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="VideoId" />
+    </Key>
+    <Property Name="VideoId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="VideoName" Type="nvarchar(max)" />
+    <Property Name="VideoSource" Type="nvarchar(max)" />
+    <Property Name="DispensaryId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="VideoImageSrc" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_Dispensary_ToUser">
+    <End Role="User" Type="WeedAngelModel.Store.User" Multiplicity="0..1" />
+    <End Role="Dispensary" Type="WeedAngelModel.Store.Dispensary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Dispensary">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Doctor_ToUser">
+    <End Role="User" Type="WeedAngelModel.Store.User" Multiplicity="0..1" />
+    <End Role="Doctor" Type="WeedAngelModel.Store.Doctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Doctor">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pictures_ToDispensary">
+    <End Role="Dispensary" Type="WeedAngelModel.Store.Dispensary" Multiplicity="0..1" />
+    <End Role="Pictures" Type="WeedAngelModel.Store.Pictures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dispensary">
+        <PropertyRef Name="DispensaryId" />
+      </Principal>
+      <Dependent Role="Pictures">
+        <PropertyRef Name="DispensaryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Video_ToDispensary">
+    <End Role="Dispensary" Type="WeedAngelModel.Store.Dispensary" Multiplicity="0..1" />
+    <End Role="Video" Type="WeedAngelModel.Store.Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dispensary">
+        <PropertyRef Name="DispensaryId" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="DispensaryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,586 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/content/assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="~/content/assets/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="~/content/proper_theme/css/style.css" rel="stylesheet" media="screen">
+        <link href="~/content/proper_theme/js/colorbox/colorbox.css" rel="stylesheet" media="screen">
+        <!-- FONTAWESOME STYLE -->
+        <link rel="stylesheet" href="~/content/proper_theme/css/font/FortAwesome/css/font-awesome.css"/>
+
+     <script src="~/content/assets/js/jquery.js"></script>
+        <script src="~/content/assets/js/bootstrap-transition.js"></script>
+        <script src="~/content/assets/js/bootstrap-alert.js"></script>
+        <script src="~/content/assets/js/bootstrap-modal.js"></script>
+        <script src="~/content/assets/js/bootstrap-dropdown.js"></script>
+        <script src="~/content/assets/js/bootstrap-scrollspy.js"></script>
+        <script src="~/content/assets/js/bootstrap-tab.js"></script>
+        <script src="~/content/assets/js/bootstrap-tooltip.js"></script>
+        <script src="~/content/assets/js/bootstrap-popover.js"></script>
+        <script src="~/content/assets/js/bootstrap-button.js"></script>
+        <script src="~/content/assets/js/bootstrap-collapse.js"></script>
+        <script src="~/content/assets/js/bootstrap-carousel.js"></script>
+        <script src="~/content/assets/js/bootstrap-typeahead.js"></script>
+
+
+        <!-- Grid -->
+        <script src="~/content/proper_theme/js/Grid-A-Licious-master/jquery.grid-a-licious.min.js"></script>
+
+        <!-- Slider -->
+        <script src="~/content/proper_theme/js/carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js"></script>
+        <!-- optionally include helper plugins carouFredSel -->
+        <script src="~/content/proper_theme/js/carouFredSel-6.2.1/helper-plugins/jquery.mousewheel.min.js"></script>
+        <script src="~/content/proper_theme/js/carouFredSel-6.2.1/helper-plugins/jquery.touchSwipe.min.js"></script>
+        <script src="~/content/proper_theme/js/carouFredSel-6.2.1/helper-plugins/jquery.transit.min.js"></script>
+        <script src="~/content/proper_theme/js/carouFredSel-6.2.1/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
+
+        <!-- JS GMAP3  -->
+        <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script src='~/content/proper_theme/js/gmap3/gmap3.min.js'></script>
+
+        <script src="~/content/proper_theme/js/colorbox/jquery.colorbox-min.js"></script>
+        <script src="~/content/proper_theme/js/proper.js"></script>
+ </head>
+    <body>
+        <!-- Start Wrapper-->
+        <div id="wrapper">
+            <!-- start breadcrumb -->
+            <div id="breadcrumb-wrapper">
+                <div class="container">
+                    <div class="pull-left">Sunday, May 18 2013</div>
+                    <div class="pull-right">
+                        <a href="login.html">Log In</a>
+                        <a href="sing_up.html">Sign Up</a>
+                    </div>
+                </div>
+            </div><!-- end breadcrumb -->
+            <!-- start header-wrapper -->
+            <div id="header-wrapper">
+                <div class="container">
+                    <div class="panel">
+                        <div class="row-fluid">
+                            <div class="span9 right-line">
+                                <a class="brand" href="index.html" ><h1 class="font-caly"><img src="~/content/proper_theme/images/logo.png" width="40" alt="logo"> Proper <small class="visible-desktop visible-tablet">Real Esatate Template</small></h1></a>
+                            </div>
+                            <div class="span3 ">
+                                <div class="clearfix">
+                                    <div class="language_curency">Curency: <a href="#">$</a> | <a href="#">&euro;</a> &nbsp; lang: <a href="#">En</a> | <a href="#">Ina</a> | <a href="#">Jpn</a></div>
+                                    <form method="get" class="form-search">
+                                        <div class="input-append">
+                                            <input title="Keywords." class="search-query form-text input-block-level" placeholder="Search" type="text" name="">
+                                            <button type="submit" class="btn"><i class="icon-search"></i></button>
+                                        </div><!-- /.input-append -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div><!-- End header-wrapper -->
+            <!-- start Navigation -->
+           @* <div id="navigation">
+                <div class="container">
+                    <div class="navbar navbar-inverse">
+                        <div class="navbar-inner">
+                            <div class="container">
+                                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <span class="brand visible-phone visible-tablet">Navbar</span>
+                                <!--.nav-collapse -->
+                                <div class="nav-collapse collapse">
+                                    <ul class="nav">
+                                        <li class="dropdown active">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="home_full_slider.html">Home Full Slider</a></li>
+                                                <li><a href="home_carousel.html">Home Slider Carousel</a></li>
+                                                <li><a href="index.html">Home With Map</a></li>
+                                                <li><a href="home_simple.html">Home Simple</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Properties <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="properties_filter.html">Properties & Filter</a></li>
+                                                <li><a href="properties_map.html">Properties & Map</a></li>
+                                                <li><a href="properties_detail.html">Properties Detail</a></li>
+                                            </ul>
+                                        <li><a href="agents.html">Agents</a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proper Pages<b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="about_us.html">About Us</a></li>
+                                                <li><a href="galeries.html">Galeries</a></li>
+                                                <li><a href="career.html">Career</a></li>
+                                                <li><a href="faq.html">FAQ</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="error_page.html">Error Page</a></li>
+                                                <li><a href="pricing.html">Pricing</a></li>
+                                                <li><a href="shortcode.html">Shortcodes</a></li>
+                                                <li><a href="typograpy.html">Typograpy</a></li>
+                                                <li><a href="grid_stystem.html">Grid System</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="news.html">News List</a></li>
+                                                <li><a href="news_detail.html">News Detail</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                    <a class="pull-right mylisting" href="upload_step1.html"><i class=" icon-folder-close-alt"></i> Upload Items</a>
+
+                                </div><!--/.nav-collapse -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@<!-- end Navigation -->
+            <!-- start Content -->
+            <div id="content">
+                <div class="panel googleMaparea">
+                    <div id="googleMap" class="">         
+                    </div>
+                    <div class="map-with-agent visible-desktop"> 
+                        <h3 >Your Message Here</h3>
+                        <img src="~/content/proper_theme/images/agents/n5.png" alt="ceo"/>
+                    </div>
+                </div>
+                <!--    News Carousel-->
+                <div class="news-carousel-wrapper">
+                    <dl id="news-carousel" class="news-carousel-style">
+                        <dt><a href="#">News Link Here</a></dt>
+                        <dd>Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.</dd>
+                        <dt><a href="#">Promo Link Here</a></dt>
+                        <dd>Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.</dd>
+                        <dt><a href="#">Another Link Here</a></dt>
+                        <dd>Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.</dd>
+                    </dl>
+                </div>
+                <!--    End News Carousel-->
+
+                <div class="container">
+                    <div class="row-fluid">
+                        <div class="span9">
+                            <div class="panel right-line">
+                                <!--Start Grid Featured-->
+                                <h2 class="main-heading bottom-line"><span class="main-circle-icon"><i class="icon-building"></i></span> Properties Around you</h2>   
+                                <div class="featured-grid right-space">
+                                    <div class="box-white">
+                                        <div class="grid-item grid-style-properties">
+                                            <div class="item">
+                                                <a href="#" class="with-hover">
+                                                    <div class="for_rent_banner"></div>
+                                                    <img alt='images' src="~/content/proper_theme/images/properties/p2.jpg" class="full"/><span class="mask_hover"></span>
+                                                </a>
+                                                <h4 class=" ">34 Central Park</h4>
+                                                <div class="preview-properties ">
+                                                    <div class="box-detail"> 
+                                                        <p class="text-center short-detail">
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Bath : 2</span>
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Beds : 2</span>
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Pool : 2</span>
+                                                            <span class="price">$380,000</span>
+                                                        </p>
+                                                        <div class="clearfix">
+                                                            <a href="#" class="btn-proper btn btn-small pull-left">See Detail</a>
+                                                            <a href="#" class="btn-proper btn btn-small pull-right">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <a href="#" class="with-hover">
+                                                    <div class="for_rent_banner"></div>
+                                                    <img alt='images' src="~/content/proper_theme/images/properties/p3.jpg" class="full"/><span class="mask_hover"></span>
+                                                </a>
+                                                <h4 class="">34 Central Park</h4>
+                                                <div class="preview-properties ">
+                                                    <div class="box-detail"> 
+                                                        <p class="text-center short-detail">
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Bath : 2</span>
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Beds : 2</span>
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Pool : 2</span>
+                                                            <span class="price">$380,000</span>
+                                                        </p>
+                                                        <div class="clearfix">
+                                                            <a href="#" class="btn-proper btn btn-small pull-left">See Detail</a>
+                                                            <a href="#" class="btn-proper btn btn-small pull-right">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <a href="#" class="with-hover">
+                                                    <div class="for_sale_banner"></div>
+                                                    <img alt='images' src="~/content/proper_theme/images/properties/p4.jpg" class="full"/><span class="mask_hover"></span>
+                                                </a>
+                                                <h4 class="">34 Central Park</h4>
+                                                <div class="preview-properties ">
+                                                    <div class="box-detail"> 
+                                                        <p class="text-center short-detail">
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Bath : 2</span>
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Beds : 2</span>
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Pool : 2</span>
+                                                            <span class="price">$380,000</span>
+                                                        </p>
+                                                        <div class="clearfix">
+                                                            <a href="#" class="btn-proper btn btn-small pull-left">See Detail</a>
+                                                            <a href="#" class="btn-proper btn btn-small pull-right">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <a href="#" class="with-hover">
+                                                    <div class="for_sale_banner"></div>
+                                                    <img alt='images' src="~/content/proper_theme/images/properties/p5.jpg" class="full"/><span class="mask_hover"></span>
+                                                </a>
+                                                <h4 class="">34 Central Park</h4>
+                                                <div class="preview-properties ">
+                                                    <div class="box-detail"> 
+                                                        <p class="text-center short-detail">
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Bath : 2</span>
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Beds : 2</span>
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Pool : 2</span>
+                                                            <span class="price">$390,000</span>
+                                                        </p>
+                                                        <div class="clearfix">
+                                                            <a href="#" class="btn-proper btn btn-small pull-left">See Detail</a>
+                                                            <a href="#" class="btn-proper btn btn-small pull-right">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <a href="#" class="with-hover">
+                                                    <div class="for_sale_banner"></div>
+                                                    <img alt='images' src="~/content/proper_theme/images/properties/p6.jpg" class="full"/><span class="mask_hover"></span>
+                                                </a>
+                                                <h4 class="">34 Central Park</h4>
+                                                <div class="preview-properties ">
+                                                    <div class="box-detail"> 
+                                                        <p class="text-center short-detail">
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Bath : 2</span>
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Beds : 2</span>
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Pool : 2</span>
+                                                            <span class="price">$190,000</span>
+                                                        </p>
+                                                        <div class="clearfix">
+                                                            <a href="#" class="btn-proper btn btn-small pull-left">See Detail</a>
+                                                            <a href="#" class="btn-proper btn btn-small pull-right">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>	
+                                            <div class="item">
+                                                <a href="#" class="with-hover">
+                                                    <div class="for_rent_banner"></div>
+                                                    <img alt='images' src="~/content/proper_theme/images/properties/p7.jpg" class="full"/><span class="mask_hover"></span>
+                                                </a>
+                                                <h4 class="">34 Central Park</h4>
+                                                <div class="preview-properties ">
+                                                    <div class="box-detail"> 
+                                                        <p class="text-center short-detail">
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Bath : 2</span>
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Beds : 2</span>
+                                                            <span class="label"><i class="icon-circle-arrow-right"></i> Pool : 2</span>
+                                                            <span class="price">$590,000</span>
+                                                        </p>
+                                                        <div class="clearfix">
+                                                            <a href="#" class="btn-proper btn btn-small pull-left">See Detail</a>
+                                                            <a href="#" class="btn-proper btn btn-small pull-right">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>		
+
+                                        </div>
+                                    </div>
+                                    <!--End Grid Featured-->
+                                </div>
+
+                                <!--Start New List-->
+                                <h2 class="main-heading bottom-line top-line "><span class="main-circle-icon"><i class="icon-book"></i></span> News</h2>   
+                                <div class=" news right-space">
+                                    <div class="media box-white">
+                                        <a class="pull-left" href="#">
+                                            <img alt="images" class="media-object" src="~/content/proper_theme/images/news/thum/n1.jpg">
+                                        </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">Investor Club</h4>
+                                            <p>Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit. 
+                                                Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.</p>
+                                            <a href="#" class="btn-proper btn btn-small ">Read More</a>
+                                        </div>
+                                    </div>
+                                    <div class="media box-white">
+                                        <a class="pull-left" href="#">
+                                            <img alt="images" class="media-object" src="http://placehold.it/150x90">
+                                        </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">Investor Club</h4>
+                                            <p>Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit. 
+                                                Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.</p>
+                                            <a href="#" class="btn-proper btn btn-small ">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End News List-->
+                            </div>
+                        </div>
+                        <div class="span3">
+                            <div class="panel">
+                                <!--Start Form Search Properties-->
+                                <h3 class="main-heading bottom-line line-before"><span class="main-circle-icon"><i class="icon-search"></i></span>  Find Properties</h3>    
+                                <form class="bottom-line line-before" action="?" method="get">
+                                    <label>Location</label>
+                                    <input type="text" placeholder="Type Your Location" name="" value="" class="input-block-level" required=""/>
+                                    <label>Radius</label>
+                                    <select name="" class="input-block-level" required="">
+                                        <option value="">This area only</option>
+                                        <option value="">Within 1/4 mile</option>
+                                        <option value="">Within 1/2 mile</option>
+                                        <option value="">Within 1 mile</option>
+                                        <option value="">Within 3 miles</option>
+                                        <option value="">Within 5 miles</option>
+                                        <option value="">Within 10 miles</option>
+                                        <option value="">Within 15 miles</option>
+                                        <option value="">Within 20 miles</option>
+                                        <option value="">Within 30 miles</option>
+                                        <option value="">Within 40 miles</option>
+                                    </select>
+                                    <div class="control-group-form">
+                                        <div class="control-group half pull-left">
+                                            <label class="control-label" >Min Price</label>
+                                            <div class="controls">
+                                                <select name="" class="input-block-level" required="">
+                                                    <option value="">All</option>
+                                                    <option value="1">1000</option>
+                                                    <option value="9">2000</option>
+                                                    <option value="9">3000</option>
+                                                    <option value="9">4000</option>
+                                                    <option value="9">5000+</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="control-group half text-right pull-right">
+                                            <label class="control-label">Max Price</label>
+                                            <div class="controls">
+                                                <select name=""   class="input-block-level" required="">
+                                                    <option value="">All</option>
+                                                    <option value="1">10000</option>
+                                                    <option value="9">20000</option>
+                                                    <option value="9">30000</option>
+                                                    <option value="9">40000</option>
+                                                    <option value="9">50000+</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="control-group-form">
+                                        <div class="control-group half pull-left">
+                                            <label class="checkbox">
+                                                <input type="checkbox" > Rent Property
+                                            </label>
+                                        </div>
+                                        <div class="control-group half text-right pull-right">
+                                            <label class="checkbox">
+                                                <input type="checkbox"> Sell Property
+                                            </label>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <label>Bath</label>
+                                    <select name=""  class="input-block-level " required="">
+                                        <option value="">All</option>
+                                        <option value="1">1</option>
+                                        <option value="9">2</option>
+                                        <option value="9">3</option>
+                                        <option value="9">4</option>
+                                        <option value="9">5+</option>
+                                    </select>
+                                    <label>Beds</label>
+                                    <select name=""  class="input-block-level " required="">
+                                        <option value="">All</option>
+                                        <option value="1">1</option>
+                                        <option value="9">2</option>
+                                        <option value="9">3</option>
+                                        <option value="9">4</option>
+                                        <option value="9">5+</option>
+                                    </select>
+
+                                    <button type="submit" class="input-block-level btn-proper btn btn-large"> Search</button>
+                                </form>
+                                <!--End Form Search Properties-->
+
+                                <!--Start List Our Agent-->
+                                <h3 class="bottom-line  line-before main-heading"><span class="main-circle-icon"><i class="icon-list"></i></span>  Our Agents</h3>
+                                <div class="list-items ">
+
+                                    <div class="item">
+                                        <div class="img-preview">
+                                            <img src="~/content/proper_theme/images/agents/thum_list/a2.jpg" alt="Corin Langpost" />
+                                        </div>
+                                        <div class="item-desk">
+                                            <div class="title">
+                                                <h3><a href="#">Angelina Cos</a></h3>
+                                            </div>
+                                            <div class="location">Palo Alto CA</div>
+                                            <a href="#" class="btn-proper btn-mini btn">Profile Page</a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="img-preview">
+                                            <img src="~/content/proper_theme/images/agents/thum_list/a1.jpg" alt="Corin Langpost" />
+                                        </div>
+                                        <div class="item-desk">
+                                            <div class="title">
+                                                <h3><a href="#">Angelina Cos</a></h3>
+                                            </div>
+                                            <div class="location">Palo Alto CA</div>
+                                            <a href="#" class="btn-proper btn-mini btn">Profile Page</a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="img-preview">
+                                            <img src="http://placehold.it/100x80" alt="Corin Langpost" />
+                                        </div>
+                                        <div class="item-desk">
+                                            <div class="title">
+                                                <h3><a href="#">Angelina Cos</a></h3>
+                                            </div>
+                                            <div class="location">Palo Alto CA</div>
+                                            <a href="#" class="btn-proper btn-mini btn">Profile Page</a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <!--End List Our AGents -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- start Footer -->
+            <div id="footer-wrapper">
+                <!-- start footer-ribon -->
+                <div class="container" >
+                    <div class="footer-ribon">
+                        <span>Get in Touch</span>
+                    </div>
+                </div><!-- end footer-ribon -->
+                <div id="footer-top">
+                    <div class="container">
+                        <div class="row-fluid">
+                            <div class="span3">
+                                <div class="panel">
+                                    <h4><i class="icon-time"></i> Contact</h4>
+                                    <p>Nullam justo nunc, dignissim at convallis posuere, sodales eu orci.</p>
+                                    <ul class="unstyled">
+                                        <li><i class="icon-home"></i> 123, Los Angeles, CA, 54321</li>
+                                        <li><i class="icon-phone"></i> +239-3823-3434</li>
+                                        <li><i class="icon-envelope"></i> someone@company.com</li>
+                                    </ul>
+
+
+                                    <a href="#" class="btn-proper btn"><i class="icon-facebook"></i></a>
+                                    <a href="#" class="btn-proper btn"><i class="icon-twitter"></i></a>
+                                    <a href="#" class="btn-proper btn"><i class="icon-google-plus"></i></a>
+                                    <a href="#" class="btn-proper btn"><i class="icon-pinterest"></i></a>
+
+
+                                </div>
+                            </div>
+                            <div class="span3">
+                                <div class="panel">
+                                    <h4><i class="icon-suitcase"> </i> Pages Link</h4>
+                                    <ul class="unstyled list-link">
+                                        <li><a href="#">Condimentum - Condimentum gravida</a></li>
+                                        <li><a href="#">Etiam at - Condimentum gravida</a></li>
+                                        <li><a href="#">Fusce vel - Condimentum gravida</a></li>
+                                        <li><a href="#">Vivamus - Condimentum gravida</a></li>
+                                        <li><a href="#">Pellentesque - Condimentum gravida</a></li>
+                                        <li><a href="#">Fusce vel - Condimentum gravida</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="span3">
+                                <div class="panel">
+                                    <h4><i class="icon-screenshot"></i> Subscribe</h4>
+
+                                    <form >
+                                        <label>Full Name</label>
+                                        <input type="text" name="" value="" placeholder="Enter Your Full Name" required=""/>
+                                        <label>Email</label>
+                                        <input type="email" name="" value="" placeholder="Enter Your Email" required=""/>
+                                        <div>
+                                            <button class="btn-proper btn">Send</button>
+                                        </div>
+
+
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="span3">
+                                <div class="panel">
+                                    <h4><i class="icon-trophy"></i> Recent News</h4>
+                                    <ul class="unstyled list-link">
+                                        <li><a href="#">Sed eu leo orci, condimentum gravida metus</a></li>
+                                        <li><a href="#">Etiam at nulla ipsum, in rhoncus purus</a></li>
+                                        <li><a href="#">Fusce vel magna faucibus felis dapibus facilisis</a></li>
+                                        <li><a href="#">Vivamus scelerisque dui in massa</a></li>
+                                        <li><a href="#">Pellentesque eget adipiscing dui semper</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="back-to-top" class="text-center"><a href="#"><i class="icon-angle-up"></i></a></div>
+                </div>
+                <div id="footer-twit" class="text-center">
+                    <div class="container">
+                        <div class="panel">
+                            <p><i class="icon-twitter icon-4x"></i> <i class="icon-quote-left qoute"></i> Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet ... <i class="icon-quote-right qoute"></i></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="footer" class="text-center">
+                    <div class="panel">
+                        <p>Copyright &copy; <a href="#">Your Site</a> - <a href="index.html">Home</a> | <a href="about_us.html">About Us</a> | <a href="faq.html">FAQ</a> | <a href="contact.html">Contact Us</a> | <a href="career.html">Career</a></p>
+                    </div>
+                </div>
+            </div><!-- end  Footer -->
+        </div><!-- End Wrapper-->
+        <!-- Just For Demo You can Remove it if unnecessary-->
+        @*<a href="custum-bg.html" class="ajax-demo"><i class="  icon-cogs"></i></a>*@
+
+        <!-- Defaut Js Bootsrap
+         ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+       
+
+
+    </body>
+</html>

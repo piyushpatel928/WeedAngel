@@ -1,0 +1,1065 @@
+﻿@model WeedAngel.Models.ViewModel.DispensariesViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddDispensariesDetail</title>
+    @*<link href="~/content/assets/css/Weedangel.MainStyle2.css" rel="stylesheet" />*@
+    <link href="~/content/assets/css/Weedangel.MainStyle3.css" rel="stylesheet" />
+    <link href="~/content/assets/css/Weedangel.MainStyle.css" rel="stylesheet" />
+    <link href="~/content/assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="~/content/assets/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="~/content/proper_theme/css/style.css" rel="stylesheet" media="screen">
+    <link href="~/content/assets/css/jquery-ui.css" rel="stylesheet" />
+    <link href="~/content/proper_theme/js/colorbox/colorbox.css" rel="stylesheet" media="screen">
+    <!-- FONTAWESOME STYLE -->
+    <link rel="stylesheet" href="~/content/proper_theme/css/font/FortAwesome/css/font-awesome.css" />
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="proper_theme/css/font-awesome-ie7.min.css">
+        <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    <link rel="shortcut icon" href="proper_theme/images/logo.png">
+    <style type="text/css">
+        .dropdown-menuweed {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            display: none;
+            float: left;
+            min-width: 160px;
+            padding: 5px 0;
+            margin: 2px 0 0;
+            list-style: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border: 1px solid rgba(0,0,0,0.2);
+            *border-right-width: 2px;
+            *border-bottom-width: 2px;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            border-radius: 6px;
+            -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            -webkit-background-clip: padding-box;
+            -moz-background-clip: padding;
+            background-clip: padding-box;
+        }
+
+            .dropdown-menuweed.pull-right {
+                right: 0;
+                left: auto;
+            }
+
+            .dropdown-menuweed .divider {
+                *width: 100%;
+                height: 1px;
+                margin: 9px 1px;
+                *margin: -5px 0 5px;
+                overflow: hidden;
+                background-color: #e5e5e5;
+                border-bottom: 1px solid #fff;
+            }
+
+            .dropdown-menuweed > li > a {
+                display: block;
+                padding: 3px 20px;
+                clear: both;
+                font-weight: normal;
+                line-height: 20px;
+                color: #333;
+                white-space: nowrap;
+            }
+
+                .dropdown-menuweed > li > a:hover, .dropdown-menuweed > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
+                    text-decoration: none;
+                    color: #fff;
+                    background-color: #f56201;
+                    background-image: -moz-linear-gradient(top, #ff6702, #e85c00);
+                    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ff6702), to(#e85c00));
+                    background-image: -webkit-linear-gradient(top, #ff6702, #e85c00);
+                    background-image: -o-linear-gradient(top, #ff6702, #e85c00);
+                    background-image: linear-gradient(to bottom, #ff6702,#e85c00);
+                    background-repeat: repeat-x;
+                    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFF6702, endColorstr=#FFE85C00, GradientType=0);
+                }
+
+            .dropdown-menuweed > .active > a, .dropdown-menuweed > .active > a:hover, .dropdown-menuweed > .active > a:focus {
+                color: #fff;
+                text-decoration: none;
+                outline: 0;
+                background-color: #f56201;
+                background-image: -moz-linear-gradient(top, #ff6702, #e85c00);
+                background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ff6702), to(#e85c00));
+                background-image: -webkit-linear-gradient(top, #ff6702, #e85c00);
+                background-image: -o-linear-gradient(top, #ff6702, #e85c00);
+                background-image: linear-gradient(to bottom, #ff6702,#e85c00);
+                background-repeat: repeat-x;
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFF6702, endColorstr=#FFE85C00, GradientType=0);
+            }
+
+            .dropdown-menuweed > .disabled > a, .dropdown-menuweed > .disabled > a:hover, .dropdown-menuweed > .disabled > a:focus {
+                color: #999;
+            }
+
+                .dropdown-menuweed > .disabled > a:hover, .dropdown-menuweed > .disabled > a:focus {
+                    text-decoration: none;
+                    background-color: transparent;
+                    background-image: none;
+                    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+                    cursor: default;
+                }
+
+        .open {
+            *z-index: 1000;
+        }
+
+            .open > .dropdown-menuweed {
+                display: block;
+            }
+
+        .pull-right > .dropdown-menuweed {
+            right: 0;
+            left: auto;
+        }
+
+        .dropup .caret, .navbar-fixed-bottom .dropdown .caret {
+            border-top: 0;
+            border-bottom: 4px solid #000;
+            content: "";
+        }
+
+        .dropup .dropdown-menuweed, .navbar-fixed-bottom .dropdown .dropdown-menuweed {
+            top: auto;
+            bottom: 100%;
+            margin-bottom: 1px;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+            .dropdown-submenu > .dropdown-menuweed {
+                top: 0;
+                left: 100%;
+                margin-top: -6px;
+                margin-left: -1px;
+                -webkit-border-radius: 0 6px 6px 6px;
+                -moz-border-radius: 0 6px 6px 6px;
+                border-radius: 0 6px 6px 6px;
+            }
+
+            .dropdown-submenu:hover > .dropdown-menuweed {
+                display: block;
+            }
+
+        .dropup .dropdown-submenu > .dropdown-menuweed {
+            top: auto;
+            bottom: 0;
+            margin-top: 0;
+            margin-bottom: -2px;
+            -webkit-border-radius: 5px 5px 5px 0;
+            -moz-border-radius: 5px 5px 5px 0;
+            border-radius: 5px 5px 5px 0;
+        }
+
+        .dropdown-submenu > a:after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #ccc;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+
+        .dropdown-submenu:hover > a:after {
+            border-left-color: #fff;
+        }
+
+        .dropdown-submenu.pull-left {
+            float: none;
+        }
+
+            .dropdown-submenu.pull-left > .dropdown-menuweed {
+                left: -100%;
+                margin-left: 10px;
+                -webkit-border-radius: 6px 0 6px 6px;
+                -moz-border-radius: 6px 0 6px 6px;
+                border-radius: 6px 0 6px 6px;
+            }
+
+        .dropdown .dropdown-menuweed .nav-header {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .typeahead {
+            z-index: 1051;
+            margin-top: 2px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Start Wrapper-->
+
+    <!-- Start Wrapper-->
+    <div id="wrapper">
+        <!-- start breadcrumb -->
+        <div id="breadcrumb-wrapper">
+            <div class="container" style="width:1170px;">
+                <div class="pull-left">Sunday, May 18 2013</div>
+                <div class="pull-right">
+                    <a href="login.html">Log In</a>
+                    <a href="sing_up.html">Sign Up</a>
+                </div>
+            </div>
+        </div>
+        <!-- end breadcrumb -->
+        <!-- start header-wrapper -->
+        <div id="header-wrapper">
+            <div class="container" style="width:1170px;">
+                <div class="panel">
+                    <div class="row-fluid">
+                        <div class="span9 right-line">
+                            <a class="brand" href="index.html">
+                                <h1 class="font-caly">
+                                    <img src="~/content/proper_theme/images/logo.png" width="40" alt="logo">
+                                    Proper <small class="visible-desktop visible-tablet">Real Esatate Template</small></h1>
+                            </a>
+                        </div>
+                        <div class="span3 ">
+                            <div class="clearfix">
+                                <div class="language_curency">Curency: <a href="#">$</a> | <a href="#">&euro;</a> &nbsp; lang: <a href="#">En</a> | <a href="#">Ina</a> | <a href="#">Jpn</a></div>
+                                <form method="get" class="form-search">
+                                    <div class="input-append">
+                                        <input title="Keywords." class="search-query form-text input-block-level" placeholder="Search" type="text" name="">
+                                        <button type="submit" class="btn"><i class="icon-search"></i></button>
+                                    </div>
+                                    <!-- /.input-append -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End header-wrapper -->
+        <!-- start Navigation -->
+        @*<div id="navigation">
+            <div class="container" style="width:1170px;">
+                <div class="navbar navbar-inverse">
+                    <div class="navbar-inner">
+                        <div class="container" >
+                            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <span class="brand visible-phone visible-tablet">Navbar</span>
+                            <!--.nav-collapse -->
+                            <div class="nav-collapse collapse">
+                                <ul class="nav">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="home_full_slider.html">Home Full Slider</a></li>
+                                            <li><a href="home_carousel.html">Home Slider Carousel</a></li>
+                                            <li><a href="index.html">Home With Map</a></li>
+                                            <li><a href="home_simple.html">Home Simple</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Properties <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="properties_filter.html">Properties & Filter</a></li>
+                                            <li><a href="properties_map.html">Properties & Map</a></li>
+                                            <li><a href="properties_detail.html">Properties Detail</a></li>
+                                        </ul>
+                                        <li><a href="agents.html">Agents</a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proper Pages<b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="about_us.html">About Us</a></li>
+                                            <li><a href="galeries.html">Galeries</a></li>
+                                            <li><a href="career.html">Career</a></li>
+                                            <li><a href="faq.html">FAQ</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="error_page.html">Error Page</a></li>
+                                            <li><a href="pricing.html">Pricing</a></li>
+                                            <li><a href="shortcode.html">Shortcodes</a></li>
+                                            <li><a href="typograpy.html">Typograpy</a></li>
+                                            <li><a href="grid_stystem.html">Grid System</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="news.html">News List</a></li>
+                                            <li><a href="news_detail.html">News Detail</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                                <a class="pull-right mylisting" href="upload_step1.html"><i class=" icon-folder-close-alt"></i>Upload Items</a>
+
+                            </div>
+                            <!--/.nav-collapse -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+        <!-- end Navigation -->
+        <!-- start Content -->
+        <div id="content">
+            <!--    News Carousel-->
+            <div class="news-carousel-wrapper">
+                <dl id="news-carousel" class="news-carousel-style">
+                    <dt><a href="#">News Link Here</a></dt>
+                    <dd>Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.</dd>
+                    <dt><a href="#">Promo Link Here</a></dt>
+                    <dd>Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.</dd>
+                    <dt><a href="#">Another Link Here</a></dt>
+                    <dd>Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.</dd>
+                </dl>
+            </div>
+            <!--    End News Carousel-->
+            <!--    End News Carousel-->
+            <div class="container">
+
+                @*<div class="btn-group pull-right">
+                    <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+                        More Options <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menuweed pull-right">
+                        <li>@Html.ActionLink("Edit", "EditDispensary", new { @Controller = "Properties" }) </li>
+                        <li>@Html.ActionLink("View", "SearchDispensaries", new { @Controller = "Properties" })</li>
+                        <li><a href="/new_admin/dispensaries/harrypotter--2/menu_items">Menu Items</a></li>
+                        <li><a href="/new_admin/dispensaries/harrypotter--2/reviews">Reviews</a></li>
+                        <li><a href="/new_admin/coupons/16061/edit">Coupon</a></li>
+                        <li>@Html.ActionLink("Picture", "Pictures", new { @Controller = "Properties" })</li>
+                        <li>@Html.ActionLink("Video", "Videos", new { @Controller = "Properties" })</li>
+
+
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink("Back to Dispensaries", "Dispensaries", new { @Controller = "Properties" })</li>
+                    </ul>
+                </div>*@
+
+
+
+
+                <!-- Header of individual pages -->
+                <div class="page-header">
+                    <h1>Edit @Model.DispensaryName</h1>
+                </div>
+
+                <span  style="margin-top: 20px; width: 78%;color:green">
+                    <h3>@ViewBag.success  @ViewBag.Message</h3>
+                </span>
+                <span  style="margin-top: 20px; width: 78%;color:red">
+                    <h3> @ViewBag.Message</h3>
+                </span>
+                <!-- Content of individual pages -->
+
+
+
+                @using (Html.BeginForm("AddDispensariesDetail", "Properties", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+                {
+               
+                    <div style="margin: 0; padding: 0; display: inline">
+                        <input name="utf8" type="hidden" value="✓"><input name="_method" type="hidden" value="put"><input name="authenticity_token" type="hidden" value="8PajVB4DR9bq56OTUtDmOaIdVSHkmBum6b7yKz6OZx8=">
+                    </div>
+
+                    <!-- Dispensary Data -->
+
+                    <div class="section-header first">Dispensary Information</div>
+                    <div style="margin-left: 150px;">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels" for="dispensary_name">Name</label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" id="dispensary_name" name="dispensary[name]" required="required" size="30" type="text" value="harrypotter">*@
+                                @Html.TextBoxFor(a => a.DispensaryName, new { @id = "dispensary_name", @class = "form-control" })<br />
+
+                                @Html.ValidationMessageFor(a => a.DispensaryName, "", new {@style="color:red;margin-left: 48px;" })<br />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels" for="dispensary_phone">Phone</label>
+                            <div class="col-lg-2">
+                                @* <input class="form-control" id="dispensary_phone_number" name="dispensary[phone_number]" size="30" type="text" style="width: 200%;">*@
+                                @Html.TextBoxFor(a => a.MobileNo, new { @id = "dispensary_phone_number", @class = "form-control", @style = "width: 200%;margin-left: 35px;" })
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels" for="dispensary_website">Website</label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" id="dispensary_website" name="dispensary[website]" size="30" type="text" value="">*@
+                                @Html.TextBoxFor(a => a.Website, new { @id = "dispensary_website", @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels" for="dispensary_email">Email</label>
+                            <div class="col-lg-8">
+                                @* <input class="form-control" id="dispensary_email" name="dispensary[email]" size="30" type="text">*@
+                                @Html.TextBoxFor(a => a.Email, new { @id = "dispensary_email", @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels" for="dispensary_avatar">Avatar</label>
+                            <div class="col-lg-8">
+                                <input id="dispensary_avatar" name="avtar" type="file" style="margin-left: 50px;">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels" for="dispensary_time_zone" style="margin-left: -40px;width: 100px;">Time Zone</label>
+                            <div class="col-lg-44">
+                                <select class="form-control" id="dispensary_time_zone" name="TimeZone" required="required" style="width: 300px;">
+                                    <option value=""></option>
+                                    <option value="Hawaii" selected="selected">(GMT-10:00) Hawaii</option>
+                                    <option value="Alaska">(GMT-09:00) Alaska</option>
+                                    <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                                    <option value="Arizona">(GMT-07:00) Arizona</option>
+                                    <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                                    <option value="Central Time (US &amp; Canada)">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                                    <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                                    <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                                    <option value="" disabled="disabled">-------------</option>
+                                    <option value="American Samoa">(GMT-11:00) American Samoa</option>
+                                    <option value="International Date Line West">(GMT-11:00) International Date Line West</option>
+                                    <option value="Midway Island">(GMT-11:00) Midway Island</option>
+                                    <option value="Tijuana">(GMT-08:00) Tijuana</option>
+                                    <option value="Chihuahua">(GMT-07:00) Chihuahua</option>
+                                    <option value="Mazatlan">(GMT-07:00) Mazatlan</option>
+                                    <option value="Central America">(GMT-06:00) Central America</option>
+                                    <option value="Guadalajara">(GMT-06:00) Guadalajara</option>
+                                    <option value="Mexico City">(GMT-06:00) Mexico City</option>
+                                    <option value="Monterrey">(GMT-06:00) Monterrey</option>
+                                    <option value="Saskatchewan">(GMT-06:00) Saskatchewan</option>
+                                    <option value="Bogota">(GMT-05:00) Bogota</option>
+                                    <option value="Lima">(GMT-05:00) Lima</option>
+                                    <option value="Quito">(GMT-05:00) Quito</option>
+                                    <option value="Caracas">(GMT-04:30) Caracas</option>
+                                    <option value="Atlantic Time (Canada)">(GMT-04:00) Atlantic Time (Canada)</option>
+                                    <option value="Georgetown">(GMT-04:00) Georgetown</option>
+                                    <option value="La Paz">(GMT-04:00) La Paz</option>
+                                    <option value="Santiago">(GMT-04:00) Santiago</option>
+                                    <option value="Newfoundland">(GMT-03:30) Newfoundland</option>
+                                    <option value="Brasilia">(GMT-03:00) Brasilia</option>
+                                    <option value="Buenos Aires">(GMT-03:00) Buenos Aires</option>
+                                    <option value="Greenland">(GMT-03:00) Greenland</option>
+                                    <option value="Mid-Atlantic">(GMT-02:00) Mid-Atlantic</option>
+                                    <option value="Azores">(GMT-01:00) Azores</option>
+                                    <option value="Cape Verde Is.">(GMT-01:00) Cape Verde Is.</option>
+                                    <option value="Casablanca">(GMT+00:00) Casablanca</option>
+                                    <option value="Dublin">(GMT+00:00) Dublin</option>
+                                    <option value="Edinburgh">(GMT+00:00) Edinburgh</option>
+                                    <option value="Lisbon">(GMT+00:00) Lisbon</option>
+                                    <option value="London">(GMT+00:00) London</option>
+                                    <option value="Monrovia">(GMT+00:00) Monrovia</option>
+                                    <option value="UTC">(GMT+00:00) UTC</option>
+                                    <option value="Amsterdam">(GMT+01:00) Amsterdam</option>
+                                    <option value="Belgrade">(GMT+01:00) Belgrade</option>
+                                    <option value="Berlin">(GMT+01:00) Berlin</option>
+                                    <option value="Bern">(GMT+01:00) Bern</option>
+                                    <option value="Bratislava">(GMT+01:00) Bratislava</option>
+                                    <option value="Brussels">(GMT+01:00) Brussels</option>
+                                    <option value="Budapest">(GMT+01:00) Budapest</option>
+                                    <option value="Copenhagen">(GMT+01:00) Copenhagen</option>
+                                    <option value="Ljubljana">(GMT+01:00) Ljubljana</option>
+                                    <option value="Madrid">(GMT+01:00) Madrid</option>
+                                    <option value="Paris">(GMT+01:00) Paris</option>
+                                    <option value="Prague">(GMT+01:00) Prague</option>
+                                    <option value="Rome">(GMT+01:00) Rome</option>
+                                    <option value="Sarajevo">(GMT+01:00) Sarajevo</option>
+                                    <option value="Skopje">(GMT+01:00) Skopje</option>
+                                    <option value="Stockholm">(GMT+01:00) Stockholm</option>
+                                    <option value="Vienna">(GMT+01:00) Vienna</option>
+                                    <option value="Warsaw">(GMT+01:00) Warsaw</option>
+                                    <option value="West Central Africa">(GMT+01:00) West Central Africa</option>
+                                    <option value="Zagreb">(GMT+01:00) Zagreb</option>
+                                    <option value="Athens">(GMT+02:00) Athens</option>
+                                    <option value="Bucharest">(GMT+02:00) Bucharest</option>
+                                    <option value="Cairo">(GMT+02:00) Cairo</option>
+                                    <option value="Harare">(GMT+02:00) Harare</option>
+                                    <option value="Helsinki">(GMT+02:00) Helsinki</option>
+                                    <option value="Istanbul">(GMT+02:00) Istanbul</option>
+                                    <option value="Jerusalem">(GMT+02:00) Jerusalem</option>
+                                    <option value="Kyiv">(GMT+02:00) Kyiv</option>
+                                    <option value="Pretoria">(GMT+02:00) Pretoria</option>
+                                    <option value="Riga">(GMT+02:00) Riga</option>
+                                    <option value="Sofia">(GMT+02:00) Sofia</option>
+                                    <option value="Tallinn">(GMT+02:00) Tallinn</option>
+                                    <option value="Vilnius">(GMT+02:00) Vilnius</option>
+                                    <option value="Baghdad">(GMT+03:00) Baghdad</option>
+                                    <option value="Kuwait">(GMT+03:00) Kuwait</option>
+                                    <option value="Minsk">(GMT+03:00) Minsk</option>
+                                    <option value="Nairobi">(GMT+03:00) Nairobi</option>
+                                    <option value="Riyadh">(GMT+03:00) Riyadh</option>
+                                    <option value="Tehran">(GMT+03:30) Tehran</option>
+                                    <option value="Abu Dhabi">(GMT+04:00) Abu Dhabi</option>
+                                    <option value="Baku">(GMT+04:00) Baku</option>
+                                    <option value="Moscow">(GMT+04:00) Moscow</option>
+                                    <option value="Muscat">(GMT+04:00) Muscat</option>
+                                    <option value="St. Petersburg">(GMT+04:00) St. Petersburg</option>
+                                    <option value="Tbilisi">(GMT+04:00) Tbilisi</option>
+                                    <option value="Volgograd">(GMT+04:00) Volgograd</option>
+                                    <option value="Yerevan">(GMT+04:00) Yerevan</option>
+                                    <option value="Kabul">(GMT+04:30) Kabul</option>
+                                    <option value="Islamabad">(GMT+05:00) Islamabad</option>
+                                    <option value="Karachi">(GMT+05:00) Karachi</option>
+                                    <option value="Tashkent">(GMT+05:00) Tashkent</option>
+                                    <option value="Chennai">(GMT+05:30) Chennai</option>
+                                    <option value="Kolkata">(GMT+05:30) Kolkata</option>
+                                    <option value="Mumbai">(GMT+05:30) Mumbai</option>
+                                    <option value="New Delhi">(GMT+05:30) New Delhi</option>
+                                    <option value="Sri Jayawardenepura">(GMT+05:30) Sri Jayawardenepura</option>
+                                    <option value="Kathmandu">(GMT+05:45) Kathmandu</option>
+                                    <option value="Almaty">(GMT+06:00) Almaty</option>
+                                    <option value="Astana">(GMT+06:00) Astana</option>
+                                    <option value="Dhaka">(GMT+06:00) Dhaka</option>
+                                    <option value="Ekaterinburg">(GMT+06:00) Ekaterinburg</option>
+                                    <option value="Rangoon">(GMT+06:30) Rangoon</option>
+                                    <option value="Bangkok">(GMT+07:00) Bangkok</option>
+                                    <option value="Hanoi">(GMT+07:00) Hanoi</option>
+                                    <option value="Jakarta">(GMT+07:00) Jakarta</option>
+                                    <option value="Novosibirsk">(GMT+07:00) Novosibirsk</option>
+                                    <option value="Beijing">(GMT+08:00) Beijing</option>
+                                    <option value="Chongqing">(GMT+08:00) Chongqing</option>
+                                    <option value="Hong Kong">(GMT+08:00) Hong Kong</option>
+                                    <option value="Krasnoyarsk">(GMT+08:00) Krasnoyarsk</option>
+                                    <option value="Kuala Lumpur">(GMT+08:00) Kuala Lumpur</option>
+                                    <option value="Perth">(GMT+08:00) Perth</option>
+                                    <option value="Singapore">(GMT+08:00) Singapore</option>
+                                    <option value="Taipei">(GMT+08:00) Taipei</option>
+                                    <option value="Ulaan Bataar">(GMT+08:00) Ulaan Bataar</option>
+                                    <option value="Urumqi">(GMT+08:00) Urumqi</option>
+                                    <option value="Irkutsk">(GMT+09:00) Irkutsk</option>
+                                    <option value="Osaka">(GMT+09:00) Osaka</option>
+                                    <option value="Sapporo">(GMT+09:00) Sapporo</option>
+                                    <option value="Seoul">(GMT+09:00) Seoul</option>
+                                    <option value="Tokyo">(GMT+09:00) Tokyo</option>
+                                    <option value="Adelaide">(GMT+09:30) Adelaide</option>
+                                    <option value="Darwin">(GMT+09:30) Darwin</option>
+                                    <option value="Brisbane">(GMT+10:00) Brisbane</option>
+                                    <option value="Canberra">(GMT+10:00) Canberra</option>
+                                    <option value="Guam">(GMT+10:00) Guam</option>
+                                    <option value="Hobart">(GMT+10:00) Hobart</option>
+                                    <option value="Melbourne">(GMT+10:00) Melbourne</option>
+                                    <option value="Port Moresby">(GMT+10:00) Port Moresby</option>
+                                    <option value="Sydney">(GMT+10:00) Sydney</option>
+                                    <option value="Yakutsk">(GMT+10:00) Yakutsk</option>
+                                    <option value="New Caledonia">(GMT+11:00) New Caledonia</option>
+                                    <option value="Vladivostok">(GMT+11:00) Vladivostok</option>
+                                    <option value="Auckland">(GMT+12:00) Auckland</option>
+                                    <option value="Fiji">(GMT+12:00) Fiji</option>
+                                    <option value="Kamchatka">(GMT+12:00) Kamchatka</option>
+                                    <option value="Magadan">(GMT+12:00) Magadan</option>
+                                    <option value="Marshall Is.">(GMT+12:00) Marshall Is.</option>
+                                    <option value="Solomon Is.">(GMT+12:00) Solomon Is.</option>
+                                    <option value="Wellington">(GMT+12:00) Wellington</option>
+                                    <option value="Nuku'alofa">(GMT+13:00) Nuku'alofa</option>
+                                    <option value="Samoa">(GMT+13:00) Samoa</option>
+                                    <option value="Tokelau Is.">(GMT+13:00) Tokelau Is.</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <div class="section-header first">Details</div>
+                    <div style="margin-left: 150px">
+                        <!-- Details -->
+
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels" for="dispensary_detail_attributes_facebook_id">Facebook</label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" id="dispensary_detail_attributes_facebook_id" name="dispensary[detail_attributes][facebook_id]" rows="3" size="30" type="text">*@
+                                @Html.TextBoxFor(a => a.FacebookPage, new { @id = "dispensary_detail_attributes_facebook_id", @class = "form-control", @rows = "3" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels" for="dispensary_detail_attributes_twitter_id">Twitter</label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" id="dispensary_detail_attributes_twitter_id" name="dispensary[detail_attributes][twitter_id]" rows="3" size="30" type="text">*@
+                                @Html.TextBoxFor(a => a.TwitterPage, new { @id = "dispensary_detail_attributes_twitter_id", @class = "form-control", @rows = "3" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels" for="dispensary_detail_attributes_instagram_id">Instagram</label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" id="dispensary_detail_attributes_instagram_id" name="dispensary[detail_attributes][instagram_id]" rows="3" size="30" type="text">*@
+                                @Html.TextBoxFor(a => a.InstagramPage, new { @id = "dispensary_detail_attributes_instagram_id", @class = "form-control", @rows = "3" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels" for="dispensary_detail_attributes_intro_body">Intro Body</label>
+                            <div class="col-lg-8">
+                                @*<textarea class="form-control" cols="40" id="dispensary_detail_attributes_intro_body" name="dispensary[detail_attributes][intro_body]" rows="5" style="height: 80px;"></textarea>*@
+                                @Html.TextAreaFor(a => a.IntroBody, new { @id = "dispensary_detail_attributes_intro_body", @class = "form-control", @name = "doctor[detail_attributes][intro_body]", @rows = "5", @cols = "40",@style="height: 40px;" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels" for="dispensary_detail_attributes_body">Body</label>
+                            <div class="col-lg-8">
+
+                                @Html.TextAreaFor(a => a.Body, new { @id = "dispensary_detail_attributes_body", @class = "form-control", @name = "doctor[detail_attributes][intro_body]", @rows = "10", @cols = "40",@style="height: 80px;" })
+                            </div>
+                        </div>
+
+
+                        <!-- Detail Check Boxes -->
+
+                        <div class="form-group">
+                            <div class="col-lg-offset-2">
+                                <div class="col-md-2">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input name="dispensary[detail_attributes][has_handicap_access]" type="hidden" value="0">@*<input id="dispensary_detail_attributes_has_handicap_access" name="dispensary[detail_attributes][has_handicap_access]" type="checkbox" value="1">*@
+                                            @Html.CheckBoxFor(a => a.IsHandicapAccess, new { @id = "dispensary_detail_attributes_has_handicap_access", @name = "doctor[detail_attributes][has_handicap_access]" })
+                                            Handicap Access</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="checkbox">
+                                        @*  <label for="dispensary_detail_attributes_has_security_guard">Security Guard</label>*@
+                                        <input name="dispensary[detail_attributes][has_security_guard]" type="hidden" value="0">@*<input id="dispensary_detail_attributes_has_security_guard" name="dispensary[detail_attributes][has_security_guard]" type="checkbox" value="1">*@
+                                        @Html.CheckBoxFor(a => a.IsSecurityGuard, new { @id = "dispensary_detail_attributes_has_security_guard", @name = "doctor[detail_attributes][has_handicap_access]" })
+                                        <label for="dispensary_detail_attributes_has_security_guard">Security Guard</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="checkbox">
+                                        @*<label for="dispensary_detail_attributes_has_lounge">Lounge</label>*@
+                                        <input name="dispensary[detail_attributes][has_lounge]" type="hidden" value="0">@*<input id="dispensary_detail_attributes_has_lounge" name="dispensary[detail_attributes][has_lounge]" type="checkbox" value="1">*@
+                                        @Html.CheckBoxFor(a => a.IsLounge, new { @id = "dispensary_detail_attributes_has_lounge", @name = "doctor[detail_attributes][has_handicap_access]" })
+                                        <label for="dispensary_detail_attributes_has_lounge">Lounge</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="checkbox">
+                                        @*<label for="dispensary_detail_attributes_accepts_credit_cards">Accepts Credit Cards</label>*@
+                                        <input name="dispensary[detail_attributes][accepts_credit_cards]" type="hidden" value="0">@*<input id="dispensary_detail_attributes_accepts_credit_cards" name="dispensary[detail_attributes][accepts_credit_cards]" type="checkbox" value="1">*@
+                                        @Html.CheckBoxFor(a => a.IsAcceptCreditCard, new { @id = "dispensary_detail_attributes_accepts_credit_cards", @name = "doctor[detail_attributes][has_handicap_access]" })
+                                        <label for="dispensary_detail_attributes_accepts_credit_cards">Accepts Credit Cards</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-offset-2">
+                                <div class="col-md-2">
+                                    <div class="checkbox">
+                                        @* <label for="dispensary_detail_attributes_eighteen_plus">18+</label>*@
+                                        <input name="dispensary[detail_attributes][eighteen_plus]" type="hidden" value="0">@*<input id="dispensary_detail_attributes_eighteen_plus" name="dispensary[detail_attributes][eighteen_plus]" type="checkbox" value="1">*@
+                                        @Html.CheckBoxFor(a => a.Is18plus, new { @id = "dispensary_detail_attributes_eighteen_plus", @name = "doctor[detail_attributes][has_handicap_access]" })
+                                        <label for="dispensary_detail_attributes_eighteen_plus">18+</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="checkbox">
+                                        @*  <label for="dispensary_detail_attributes_twenty_one_plus">21+</label>*@
+                                        <input name="dispensary[detail_attributes][twenty_one_plus]" type="hidden" value="0">@*<input id="dispensary_detail_attributes_twenty_one_plus" name="dispensary[detail_attributes][twenty_one_plus]" type="checkbox" value="1">*@
+                                        @Html.CheckBoxFor(a => a.Is21plus, new { @id = "dispensary_detail_attributes_twenty_one_plus", @name = "doctor[detail_attributes][has_handicap_access]" })
+                                        <label for="dispensary_detail_attributes_twenty_one_plus">21+</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="checkbox">
+                                        @*  <label for="dispensary_detail_attributes_has_weedporn">Pictures?</label>*@
+                                        <input name="dispensary[detail_attributes][has_weedporn]" type="hidden" value="0">@*<input id="dispensary_detail_attributes_has_weedporn" name="dispensary[detail_attributes][has_weedporn]" type="checkbox" value="1">*@
+                                        @Html.CheckBoxFor(a => a.IsPicture, new { @id = "dispensary_detail_attributes_has_weedporn", @name = "doctor[detail_attributes][has_handicap_access]" })
+                                        <label for="dispensary_detail_attributes_has_weedporn">Pictures?</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="checkbox">
+                                        @*   <label for="dispensary_detail_attributes_has_videos">Videos?</label>*@
+                                        <input name="dispensary[detail_attributes][has_videos]" type="hidden" value="0">@*<input id="dispensary_detail_attributes_has_videos" name="dispensary[detail_attributes][has_videos]" type="checkbox" value="1">*@
+                                        @Html.CheckBoxFor(a => a.IsVideo, new { @id = "dispensary_detail_attributes_has_videos", @name = "doctor[detail_attributes][has_handicap_access]" })
+                                        <label for="dispensary_detail_attributes_has_videos">Videos?</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Areas Served -->
+
+                    <!-- Areas Served Admin Only -->
+
+                    <input id="dispensary_detail_attributes_id" name="dispensary[detail_attributes][id]" type="hidden" value="15519">
+                    <!-- Address Data -->
+
+                    <div class="section-header first">Address</div>
+
+                    <div style="margin-left: 150px;">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels" for="dispensary_address_attributes_street">Street</label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" id="dispensary_address_attributes_street" name="dispensary[address_attributes][street]" size="30" type="text" value="ramnagar soc nikol gam road">*@
+                                @Html.TextBoxFor(a => a.Street, new { @id = "dispensary_address_attributes_street", @class = "form-control", @rows = "3" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels" for="dispensary_address_attributes_city">City</label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" id="dispensary_address_attributes_city" name="dispensary[address_attributes][city]" size="30" type="text" value="ahmedabad">*@
+                                @Html.TextBoxFor(a => a.City, new { @id = "dispensary_address_attributes_city", @class = "form-control", @rows = "3" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels" for="dispensary_address_attributes_state">State</label>
+                            <div class="col-lg-2"  style="width: 300px;">
+                                @*<input class="form-control" id="dispensary_address_attributes_state" maxlength="2" name="dispensary[address_attributes][state]" size="2" type="text" value="Gujarat">*@
+                                @Html.TextBoxFor(a => a.State, new { @id = "dispensary_address_attributes_state", @class = "form-control", @rows = "3",@style="margin-left: 35px;" })
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels" for="dispensary_address_attributes_zip_code">Zip Code</label>
+                            <div class="col-lg-2" style="width: 300px;">
+                                @*<input class="form-control" id="dispensary_address_attributes_zip_code" name="dispensary[address_attributes][zip_code]" size="30" type="text" value="382350">*@
+                                @Html.TextBoxFor(a => a.ZipCode, new { @id = "dispensary_address_attributes_zip_code", @class = "form-control", @rows = "3",@style="margin-left: 35px;"  })<br /> 
+
+                                 @Html.ValidationMessageFor(a => a.ZipCode, "", new {@style="color:red;margin-left: 34px;" })<br />
+                            </div>
+                        </div>
+                        <br /><br />
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels" for="dispensary_address_attributes_country">Country</label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" id="dispensary_address_attributes_country" name="dispensary[address_attributes][country]" size="30" type="text">*@
+                                @Html.TextBoxFor(a => a.Country, new { @id = "dispensary_address_attributes_country", @class = "form-control", @rows = "3" })
+                            </div>
+                        </div>
+                        <input id="dispensary_address_attributes_id" name="dispensary[address_attributes][id]" type="hidden" value="16312">
+                    </div>
+
+
+                    <div class="section-header first">Hours</div>
+
+                    <div style="margin-left: 150px;">
+                        <div class="form-group" style="margin-left: 40px;">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-2"><b>Open</b></div>
+                            <div class="col-lg-2" style="margin-left: 80px;"><b>Close</b></div>
+                        </div>
+                        <br />
+                        <div class="form-group" style="margin-left: 130px;">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-4"><i>Leave both times blank if closed all day.</i></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels">Sunday</label>
+                            <div class="col-lg-2">
+                                @*<input class="form-control" id="hours_sun_opening_time" name="hours[]sun_opening_time" placeholder="Closed" type="text" value="10:00am" style="width: 100px;">*@
+                                @Html.TextBoxFor(a => a.SundayOpen, new { @id = "hours_sun_opening_time",Value="10:00 AM", @class = "form-control", @rows = "3",@placeholder="Closed",@style="width: 100px" })
+                            </div>
+                            <div class="col-lg-2" style="margin-left: 70px;">
+                                @*<input class="form-control" id="hours_sun_closing_time" name="hours[]sun_closing_time" placeholder="Closed" type="text" value="10:00pm" style="width: 100px;">*@
+                                @Html.TextBoxFor(a => a.SundayClose, new { @id = "hours_sun_closing_time", @class = "form-control", @rows = "3",@style="width: 100px;",@placeholder="Closed" ,Value="10:00 PM"})
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels">Monday</label>
+                            <div class="col-lg-2">
+                                @*<input class="form-control" id="hours_mon_opening_time" name="hours[]mon_opening_time" placeholder="Closed" type="text" value="10:00am" style="width: 100px;">*@
+                                 @Html.TextBoxFor(a => a.MondayOpen, new { @id = "hours_mon_opening_time", @class = "form-control", @rows = "3",@style="width: 100px;",@placeholder="Closed",Value="10:00 AM" })
+                            </div>
+                            <div class="col-lg-2" style="margin-left: 70px;">
+                                @*<input class="form-control" id="hours_mon_closing_time" name="hours[]mon_closing_time" placeholder="Closed" type="text" value="10:00pm" style="width: 100px;">*@
+                                 @Html.TextBoxFor(a => a.MondayClose, new { @id = "hours_mon_closing_time", @class = "form-control", @rows = "3",@style="width: 100px;",@placeholder="Closed",Value="10:00 PM" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels">Tuesday</label>
+                            <div class="col-lg-2">
+                                @*<input class="form-control" id="hours_tue_opening_time" name="hours[]tue_opening_time" placeholder="Closed" type="text" value="10:00am" style="width: 100px;">*@
+                                 @Html.TextBoxFor(a => a.TuesdayOpen, new { @id = "hours_tue_opening_time", @class = "form-control", @rows = "3",@style="width: 100px;",@placeholder="Closed",Value="10:00 AM" })
+                            </div>
+                            <div class="col-lg-2" style="margin-left: 70px;">
+                                @*<input class="form-control" id="hours_tue_closing_time" name="hours[]tue_closing_time" placeholder="Closed" type="text" value="10:00pm" style="width: 100px;">*@
+                                 @Html.TextBoxFor(a => a.TuesdayClose, new { @id = "hours_tue_closing_time", @class = "form-control", @rows = "3",@style="width: 100px;",@placeholder="Closed",Value="10:00 PM" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels">Wednesday</label>
+                            <div class="col-lg-2">
+                                @*<input class="form-control" id="hours_wed_opening_time" name="hours[]wed_opening_time" placeholder="Closed" type="text" value="10:00am" style="width: 100px;">*@
+                                 @Html.TextBoxFor(a => a.WednesdayOpen, new { @id = "hours_wed_opening_time", @class = "form-control", @rows = "3",@style="width: 100px;",@placeholder="Closed",Value="10:00 AM" })
+                            </div>
+                            <div class="col-lg-2" style="margin-left: 70px;">
+                                @*<input class="form-control" id="hours_wed_closing_time" name="hours[]wed_closing_time" placeholder="Closed" type="text" value="10:00pm" style="width: 100px;">*@
+                                 @Html.TextBoxFor(a => a.WednesdayClose, new { @id = "hours_wed_closing_time", @class = "form-control", @rows = "3",@style="width: 100px;",@placeholder="Closed",Value="10:00 PM" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels">Thursday</label>
+                            <div class="col-lg-2">
+                                @*<input class="form-control" id="hours_thu_opening_time" name="hours[]thu_opening_time" placeholder="Closed" type="text" value="10:00am" style="width: 100px;">*@
+                                 @Html.TextBoxFor(a => a.ThursdayOpen, new { @id = "hours_thu_opening_time", @class = "form-control", @rows = "3",@style="width: 100px;",Value="10:00 AM",@placeholder="Closed" })
+                            </div>
+                            <div class="col-lg-2" style="margin-left: 70px;">
+                                @*<input class="form-control" id="hours_thu_closing_time" name="hours[]thu_closing_time" placeholder="Closed" type="text" value="10:00pm" style="width: 100px;">*@
+                                 @Html.TextBoxFor(a => a.ThursdayClose, new { @id = "hours_thu_closing_time", @class = "form-control", @rows = "3",@style="width: 100px;",Value="10:00 PM",@placeholder="Closed" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels">Friday</label>
+                            <div class="col-lg-2">
+                                @*<input class="form-control" id="hours_fri_opening_time" name="hours[]fri_opening_time" placeholder="Closed" type="text" value="10:00am" style="width: 100px;">*@
+                                 @Html.TextBoxFor(a => a.FridayOpen, new { @id = "hours_fri_opening_time", @class = "form-control", @rows = "3",@style="width: 100px;",@placeholder="Closed",Value="10:00 AM" })
+                            </div>
+                            <div class="col-lg-2" style="margin-left: 70px;">
+                                @*<input class="form-control" id="hours_fri_closing_time" name="hours[]fri_closing_time" placeholder="Closed" type="text" value="10:00pm" style="width: 100px;">*@
+                                 @Html.TextBoxFor(a => a.FridayClose, new { @id = "hours_fri_closing_time", @class = "form-control", @rows = "3",@style="width: 100px;",@placeholder="Closed",Value="10:00 PM" })
+
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="col-lg-2 control-labels">Saturday</label>
+                            <div class="col-lg-2">
+                                @*<input class="form-control" id="hours_sat_opening_time" name="hours[]sat_opening_time" placeholder="Closed" type="text" value="10:00am" style="width: 100px;">*@
+                                 @Html.TextBoxFor(a => a.SaturdayOpen, new { @id = "hours_sat_opening_time", @class = "form-control", @rows = "3",@style="width: 100px;",@placeholder="Closed",Value="10:00 AM" })
+                            </div>
+                            <div class="col-lg-2" style="margin-left: 70px;">
+                                @*<input class="form-control" id="hours_sat_closing_time" name="hours[]sat_closing_time" placeholder="Closed" type="text" value="10:00pm" style="width: 100px;">*@
+                                 @Html.TextBoxFor(a => a.SaturdayClose, new { @id = "hours_sat_closing_time", @class = "form-control", @rows = "3",@style="width: 100px;",@placeholder="Closed",Value="10:00 PM" })
+                            </div>
+                        </div>
+                        <br />
+
+                    </div>
+                    <!-- Action Buttons -->
+
+                    <div class="form-group form-actions" style="background-image: url(../content/proper_theme/images/pattern/diagonal-noise.png);">
+                        <div class="col-lg-offset-2 col-lg-8">
+                            <a href="/new_admin/dispensaries" class="btn btn-default">‹ Back</a>
+                            <input class="btn btn-success" name="commit" type="submit" value="Save Changes">
+                        </div>
+                    </div>
+
+               
+                }
+
+            </div>
+        </div>
+
+
+
+
+        <!-- start Footer -->
+        <div id="footer-wrapper">
+            <!-- start footer-ribon -->
+            <div class="container">
+                <div class="footer-ribon">
+                    <span>Get in Touch</span>
+                </div>
+            </div>
+            <!-- end footer-ribon -->
+            <div id="footer-top">
+                <div class="container">
+                    <div class="row-fluid">
+                        <div class="span3">
+                            <div class="panel">
+                                <h4><i class="icon-time"></i>Contact</h4>
+                                <p>Nullam justo nunc, dignissim at convallis posuere, sodales eu orci.</p>
+                                <ul class="unstyled">
+                                    <li><i class="icon-home"></i>123, Los Angeles, CA, 54321</li>
+                                    <li><i class="icon-phone"></i>+239-3823-3434</li>
+                                    <li><i class="icon-envelope"></i>someone@company.com</li>
+                                </ul>
+
+
+                                <a href="#" class="btn-proper btn"><i class="icon-facebook"></i></a>
+                                <a href="#" class="btn-proper btn"><i class="icon-twitter"></i></a>
+                                <a href="#" class="btn-proper btn"><i class="icon-google-plus"></i></a>
+                                <a href="#" class="btn-proper btn"><i class="icon-pinterest"></i></a>
+
+
+                            </div>
+                        </div>
+                        <div class="span3">
+                            <div class="panel">
+                                <h4><i class="icon-suitcase"></i>Pages Link</h4>
+                                <ul class="unstyled list-link">
+                                    <li><a href="#">Condimentum - Condimentum gravida</a></li>
+                                    <li><a href="#">Etiam at - Condimentum gravida</a></li>
+                                    <li><a href="#">Fusce vel - Condimentum gravida</a></li>
+                                    <li><a href="#">Vivamus - Condimentum gravida</a></li>
+                                    <li><a href="#">Pellentesque - Condimentum gravida</a></li>
+                                    <li><a href="#">Fusce vel - Condimentum gravida</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="span3">
+                            <div class="panel">
+                                <h4><i class="icon-screenshot"></i>Subscribe</h4>
+
+                                <form>
+                                    <label>Full Name</label>
+                                    <input type="text" name="" value="" placeholder="Enter Your Full Name" required="" />
+                                    <label>Email</label>
+                                    <input type="email" name="" value="" placeholder="Enter Your Email" required="" />
+                                    <div>
+                                        <button class="btn-proper btn">Send</button>
+                                    </div>
+
+
+
+                                </form>
+                            </div>
+                        </div>
+                        <div class="span3">
+                            <div class="panel">
+                                <h4><i class="icon-trophy"></i>Recent News</h4>
+                                <ul class="unstyled list-link">
+                                    <li><a href="#">Sed eu leo orci, condimentum gravida metus</a></li>
+                                    <li><a href="#">Etiam at nulla ipsum, in rhoncus purus</a></li>
+                                    <li><a href="#">Fusce vel magna faucibus felis dapibus facilisis</a></li>
+                                    <li><a href="#">Vivamus scelerisque dui in massa</a></li>
+                                    <li><a href="#">Pellentesque eget adipiscing dui semper</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="back-to-top" class="text-center"><a href="#"><i class="icon-angle-up"></i></a></div>
+            </div>
+            <div id="footer-twit" class="text-center">
+                <div class="container">
+                    <div class="panel">
+                        <p><i class="icon-twitter icon-4x"></i><i class="icon-quote-left qoute"></i>Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet ... <i class="icon-quote-right qoute"></i></p>
+                    </div>
+                </div>
+            </div>
+            <div id="footer" class="text-center">
+                <div class="panel">
+                    <p>Copyright &copy; <a href="#">Your Site</a> - <a href="index.html">Home</a> | <a href="about_us.html">About Us</a> | <a href="faq.html">FAQ</a> | <a href="contact.html">Contact Us</a> | <a href="career.html">Career</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- end  Footer -->
+    </div>
+    <!-- End Wrapper-->
+    <!-- Just For Demo You can Remove it if unnecessary-->
+    @*<a href="custum-bg.html" class="ajax-demo"><i class="  icon-cogs"></i></a>*@
+
+    <!-- Defaut Js Bootsrap
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="~/content/assets/js/jquery.js"></script>
+    <script src="~/content/assets/js/jquery-ui.js"></script>
+    <script src="~/content/assets/js/bootstrap-transition.js"></script>
+    <script src="~/content/assets/js/bootstrap-alert.js"></script>
+    <script src="~/content/assets/js/bootstrap-modal.js"></script>
+    <script src="~/content/assets/js/bootstrap-dropdown.js"></script>
+    <script src="~/content/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="~/content/assets/js/bootstrap-tab.js"></script>
+
+    <script src="~/content/assets/js/bootstrap-tooltip.js"></script>
+    <script src="~/content/assets/js/bootstrap-popover.js"></script>
+    <script src="~/content/assets/js/bootstrap-button.js"></script>
+    <script src="~/content/assets/js/bootstrap-collapse.js"></script>
+    <script src="~/content/assets/js/bootstrap-carousel.js"></script>
+    <script src="~/content/assets/js/bootstrap-typeahead.js"></script>
+    <script src="~/content/assets/js/jquery.ui.timepicker.js"></script>
+    <script src="~/content/assets/js/jquery.validate.min.js"></script>
+    <script src="~/content/assets/js/jquery.validate.unobtrusive.min.js"></script>
+    <!-- Grid -->
+    <script src="~/content/proper_theme/js/Grid-A-Licious-master/jquery.grid-a-licious.min.js"></script>
+
+    <!-- Slider -->
+    <script src="~/content/proper_theme/js/carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <!-- optionally include helper plugins carouFredSel -->
+    <script src="~/content/proper_theme/js/carouFredSel-6.2.1/helper-plugins/jquery.mousewheel.min.js"></script>
+    <script src="~/content/proper_theme/js/carouFredSel-6.2.1/helper-plugins/jquery.touchSwipe.min.js"></script>
+    <script src="~/content/proper_theme/js/carouFredSel-6.2.1/helper-plugins/jquery.transit.min.js"></script>
+    <script src="~/content/proper_theme/js/carouFredSel-6.2.1/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
+
+    <!-- JS GMAP3  -->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src='~/content/proper_theme/js/gmap3/gmap3.min.js'></script>
+
+    <script src="~/content/proper_theme/js/colorbox/jquery.colorbox-min.js"></script>
+    <script src="~/content/proper_theme/js/proper.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            
+            $("#hours_sun_opening_time").timepicker({ showPeriod: true, showLeadingZero: true });            
+            $("#hours_sun_closing_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_mon_opening_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_mon_closing_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_tue_opening_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_tue_closing_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_wed_opening_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_wed_closing_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_thu_opening_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_thu_closing_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_fri_opening_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_fri_closing_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_sat_opening_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_sat_closing_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            
+
+        });
+
+    </script>
+
+</body>
+</html>
+
+

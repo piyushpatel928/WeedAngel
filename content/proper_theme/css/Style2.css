@@ -1,0 +1,104 @@
+﻿.btn-group {
+position: relative;
+display: inline-block;
+font-size: 0;
+vertical-align: middle;
+white-space: nowrap;
+}
+
+.dropdown-toggles{
+    position: absolute;
+margin-top: 2px;
+z-index: 2;
+background: none;
+border: 0;
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+border-radius: 0;
+color: white;
+margin-left: -40px;
+
+
+border: 1px solid #454545;
+background: #353535;
+-moz-box-shadow: inset 1px 1px 0 #1D1D1D;
+-webkit-box-shadow: inset 1px 1px 0 #1D1D1D;
+box-shadow: inset 1px 1px 0 #1D1D1D;
+}
+.caret {
+margin-top: 8px;
+margin-left: 0;
+display: inline-block;
+width: 0;
+height: 0;
+vertical-align: top;
+border-top: 4px solid #000;
+border-right: 4px solid transparent;
+border-left: 4px solid transparent;
+content: "";
+}
+.btns {
+font-size: 14px;
+line-height: 20px;
+text-align: center;
+cursor: pointer;
+color: #333;
+text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+}
+.dropdown-str {
+position: absolute;
+top: 100%;
+left: 0;
+z-index: 1000;
+display: none;
+float: left;
+min-width: 160px;
+padding: 5px 0;
+margin: 2px 0 0;
+list-style: none;
+background-color: #fff;
+border: 1px solid #ccc;
+border: 1px solid rgba(0,0,0,0.2);
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+-webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+-moz-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+-webkit-background-clip: padding-box;
+-moz-background-clip: padding;
+background-clip: padding-box;
+border-radius: 0 !important;
+background: #3D3D3D !important;
+z-index: 99999;
+padding: 0;
+}
+
+
+.button_network
+{
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 12px; float:left;
+    padding: 5px;
+    text-decoration: none;
+	border-radius: 28px;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+	-ms-border-radius: 28px;
+    -webkit-box-shadow: 0px 1px 3px #666666;
+    -moz-box-shadow: 0px 1px 3px #666666;
+    box-shadow: 0px 1px 3px #666666;
+    text-shadow: 1px 1px 3px #666666;
+    border: solid #25729a 2px;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#3093c7), to(#1c5a85));
+    background: -moz-linear-gradient(top, #3093c7, #1c5a85);
+	behavior:url(PIE.htc); background:#006699;
+}
+
+
+.dropdown-str li > a{padding: 10px;color:red;}
+.navbar .nav > li > .dropdown-str:after{ border-right: 6px solid transparent;border-bottom: 6px solid #3D3D3D;border-left: 6px solid transparent;}
+
+.dropdown-str{border-radius:0 !important;background: #3D3D3D !important;z-index: 99999;padding: 0;}
+.dropdown-str li > a {}

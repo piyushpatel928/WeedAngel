@@ -1,0 +1,1103 @@
+﻿@model WeedAngel.Models.ViewModel.UserDispensaryViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dispensaries</title>
+    <link href="~/content/assets/css/Weedangel.MainStyle3.css" rel="stylesheet" />
+    @*<link href="~/content/assets/css/Weedangel.MainStyle2.css" rel="stylesheet" />*@
+    <link href="~/content/assets/css/Weedangel.MainStyle.css" rel="stylesheet" />
+    <link href="~/content/assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="~/content/assets/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="~/content/proper_theme/css/style.css" rel="stylesheet" media="screen">
+     <script src="~/content/assets/js/jquery-1.8.3.min.js"></script>
+    <link href="~/content/assets/css/jquery-ui.css" rel="stylesheet" />
+    <link href="~/content/proper_theme/js/colorbox/colorbox.css" rel="stylesheet" media="screen">
+    <!-- FONTAWESOME STYLE -->
+    <link rel="stylesheet" href="~/content/proper_theme/css/font/FortAwesome/css/font-awesome.css" />
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="proper_theme/css/font-awesome-ie7.min.css">
+        <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    <link rel="shortcut icon" href="proper_theme/images/logo.png">
+    <script type="text/javascript">
+        $(function () {
+            $("#dropmenu").hide();
+            $("#dropclick").click(function () {
+                $("#dropmenu").show();
+            });
+        });
+    </script>
+    <style type="text/css">
+        .dropdown-menuweed {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            display: none;
+            float: left;
+            min-width: 160px;
+            padding: 5px 0;
+            margin: 2px 0 0;
+            list-style: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border: 1px solid rgba(0,0,0,0.2);
+            *border-right-width: 2px;
+            *border-bottom-width: 2px;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            border-radius: 6px;
+            -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            -webkit-background-clip: padding-box;
+            -moz-background-clip: padding;
+            background-clip: padding-box;
+        }
+
+            .dropdown-menuweed.pull-right {
+                right: 0;
+                left: auto;
+            }
+
+            .dropdown-menuweed .divider {
+                *width: 100%;
+                height: 1px;
+                margin: 9px 1px;
+                *margin: -5px 0 5px;
+                overflow: hidden;
+                background-color: #e5e5e5;
+                border-bottom: 1px solid #fff;
+            }
+
+            .dropdown-menuweed > li > a {
+                display: block;
+                padding: 3px 20px;
+                clear: both;
+                font-weight: normal;
+                line-height: 20px;
+                color: #333;
+                white-space: nowrap;
+            }
+
+                .dropdown-menuweed > li > a:hover, .dropdown-menuweed > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
+                    text-decoration: none;
+                    color: #fff;
+                    background-color: #f56201;
+                    background-image: -moz-linear-gradient(top, #ff6702, #e85c00);
+                    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ff6702), to(#e85c00));
+                    background-image: -webkit-linear-gradient(top, #ff6702, #e85c00);
+                    background-image: -o-linear-gradient(top, #ff6702, #e85c00);
+                    background-image: linear-gradient(to bottom, #ff6702,#e85c00);
+                    background-repeat: repeat-x;
+                    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFF6702, endColorstr=#FFE85C00, GradientType=0);
+                }
+
+            .dropdown-menuweed > .active > a, .dropdown-menuweed > .active > a:hover, .dropdown-menuweed > .active > a:focus {
+                color: #fff;
+                text-decoration: none;
+                outline: 0;
+                background-color: #f56201;
+                background-image: -moz-linear-gradient(top, #ff6702, #e85c00);
+                background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ff6702), to(#e85c00));
+                background-image: -webkit-linear-gradient(top, #ff6702, #e85c00);
+                background-image: -o-linear-gradient(top, #ff6702, #e85c00);
+                background-image: linear-gradient(to bottom, #ff6702,#e85c00);
+                background-repeat: repeat-x;
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFF6702, endColorstr=#FFE85C00, GradientType=0);
+            }
+
+            .dropdown-menuweed > .disabled > a, .dropdown-menuweed > .disabled > a:hover, .dropdown-menuweed > .disabled > a:focus {
+                color: #999;
+            }
+
+                .dropdown-menuweed > .disabled > a:hover, .dropdown-menuweed > .disabled > a:focus {
+                    text-decoration: none;
+                    background-color: transparent;
+                    background-image: none;
+                    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+                    cursor: default;
+                }
+
+        .open {
+            *z-index: 1000;
+        }
+
+            .open > .dropdown-menuweed {
+                display: block;
+            }
+
+        .pull-right > .dropdown-menuweed {
+            right: 0;
+            left: auto;
+        }
+
+        .dropup .caret, .navbar-fixed-bottom .dropdown .caret {
+            border-top: 0;
+            border-bottom: 4px solid #000;
+            content: "";
+        }
+
+        .dropup .dropdown-menuweed, .navbar-fixed-bottom .dropdown .dropdown-menuweed {
+            top: auto;
+            bottom: 100%;
+            margin-bottom: 1px;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+            .dropdown-submenu > .dropdown-menuweed {
+                top: 0;
+                left: 100%;
+                margin-top: -6px;
+                margin-left: -1px;
+                -webkit-border-radius: 0 6px 6px 6px;
+                -moz-border-radius: 0 6px 6px 6px;
+                border-radius: 0 6px 6px 6px;
+            }
+
+            .dropdown-submenu:hover > .dropdown-menuweed {
+                display: block;
+            }
+
+        .dropup .dropdown-submenu > .dropdown-menuweed {
+            top: auto;
+            bottom: 0;
+            margin-top: 0;
+            margin-bottom: -2px;
+            -webkit-border-radius: 5px 5px 5px 0;
+            -moz-border-radius: 5px 5px 5px 0;
+            border-radius: 5px 5px 5px 0;
+        }
+
+        .dropdown-submenu > a:after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #ccc;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+
+        .dropdown-submenu:hover > a:after {
+            border-left-color: #fff;
+        }
+
+        .dropdown-submenu.pull-left {
+            float: none;
+        }
+
+            .dropdown-submenu.pull-left > .dropdown-menuweed {
+                left: -100%;
+                margin-left: 10px;
+                -webkit-border-radius: 6px 0 6px 6px;
+                -moz-border-radius: 6px 0 6px 6px;
+                border-radius: 6px 0 6px 6px;
+            }
+
+        .dropdown .dropdown-menuweed .nav-header {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .typeahead {
+            z-index: 1051;
+            margin-top: 2px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Start Wrapper-->
+
+    <!-- Start Wrapper-->
+    <div id="wrapper">
+        <!-- start breadcrumb -->
+        <div id="breadcrumb-wrapper">
+            <div class="container" style="width: 1170px">
+                <div class="pull-left">Sunday, May 18 2013</div>
+                <div class="pull-right">
+                    <a href="login.html">Log In</a>
+                    <a href="sing_up.html">Sign Up</a>
+                </div>
+            </div>
+        </div>
+        <!-- end breadcrumb -->
+        <!-- start header-wrapper -->
+        <div id="header-wrapper">
+            <div class="container" style="width: 1170px">
+                <div class="panel">
+                    <div class="row-fluid">
+                        <div class="span9 right-line">
+                            <a class="brand" href="index.html">
+                                <h1 class="font-caly">
+                                    <img src="~/content/proper_theme/images/logo.png" width="40" alt="logo">
+                                    Proper <small class="visible-desktop visible-tablet">Real Esatate Template</small></h1>
+                            </a>
+                        </div>
+                        <div class="span3 ">
+                            <div class="clearfix">
+                                <div class="language_curency">Curency: <a href="#">$</a> | <a href="#">&euro;</a> &nbsp; lang: <a href="#">En</a> | <a href="#">Ina</a> | <a href="#">Jpn</a></div>
+                                <form method="get" class="form-search">
+                                    <div class="input-append">
+                                        <input title="Keywords." class="search-query form-text input-block-level" placeholder="Search" type="text" name="">
+                                        <button type="submit" class="btn"><i class="icon-search"></i></button>
+                                    </div>
+                                    <!-- /.input-append -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End header-wrapper -->
+        <!-- start Navigation -->
+        @* <div id="navigation">
+            <div class="container" style="width: 1170px">
+                <div class="navbar navbar-inverse">
+                    <div class="navbar-inner">
+                        <div class="container" style="width: 1170px">
+                            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <span class="brand visible-phone visible-tablet">Navbar</span>
+                            <!--.nav-collapse -->
+                            <div class="nav-collapse collapse">
+                                <ul class="nav">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="home_full_slider.html">Home Full Slider</a></li>
+                                            <li><a href="home_carousel.html">Home Slider Carousel</a></li>
+                                            <li><a href="index.html">Home With Map</a></li>
+                                            <li><a href="home_simple.html">Home Simple</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Properties <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="properties_filter.html">Properties & Filter</a></li>
+                                            <li><a href="properties_map.html">Properties & Map</a></li>
+                                            <li><a href="properties_detail.html">Properties Detail</a></li>
+                                        </ul>
+                                        <li><a href="agents.html">Agents</a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proper Pages<b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="about_us.html">About Us</a></li>
+                                            <li><a href="galeries.html">Galeries</a></li>
+                                            <li><a href="career.html">Career</a></li>
+                                            <li><a href="faq.html">FAQ</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="error_page.html">Error Page</a></li>
+                                            <li><a href="pricing.html">Pricing</a></li>
+                                            <li><a href="shortcode.html">Shortcodes</a></li>
+                                            <li><a href="typograpy.html">Typograpy</a></li>
+                                            <li><a href="grid_stystem.html">Grid System</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="news.html">News List</a></li>
+                                            <li><a href="news_detail.html">News Detail</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                                <a class="pull-right mylisting" href="upload_step1.html"><i class=" icon-folder-close-alt"></i>Upload Items</a>
+
+                            </div>
+                            <!--/.nav-collapse -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+        <!-- end Navigation -->
+        <!-- start Content -->
+        <div id="content">
+            <!--    News Carousel-->
+            <div class="news-carousel-wrapper">
+                <dl id="news-carousel" class="news-carousel-style">
+                    <dt><a href="#">News Link Here</a></dt>
+                    <dd>Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.</dd>
+                    <dt><a href="#">Promo Link Here</a></dt>
+                    <dd>Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.</dd>
+                    <dt><a href="#">Another Link Here</a></dt>
+                    <dd>Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.</dd>
+                </dl>
+            </div>
+            <!--    End News Carousel-->
+            <!--    End News Carousel-->
+            <div class="container">
+                   <div id="weeduser" class="dropdown open" style="margin-left: 81%;margin-top: 10px;">
+                    @if (Model.AvtarPathName != null)
+                    {
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <img alt="Square_tulips" src="@Url.Content(Model.AvtarPathName)" title="piyushpatel928" height="30" width="30"></a>
+                    }
+                    else
+                    {
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <img alt="Square_tulips" src="~/content/proper_theme/images/no-avatar.png" title="piyushpatel928" height="30" width="30"></a>
+                    }
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="dropclick"><span>@Model.UserName</span></a><!--<b class="caret"></b>-->
+
+
+                    <ul class="dropdown-menuweed" id="dropmenu">
+                        <li>@Html.ActionLink("Admin", "Dispensaries", new { @Controller = "Properties" }, new { @style = "text-decoration:none;" })  </li>
+
+                        <li>@Html.ActionLink("Profile", "Profile", new { @Controller = "Home" }, new { @style = "text-decoration:none;" }) </li>
+                        <li>@Html.ActionLink("LogOut","LogOut",new { @Controller = "Home" })</li>
+                    </ul>
+                </div>
+                
+                 @Html.ActionLink("New Dispensary", "AddDispensaries", new { @Controller = "Properties" }, new {@style="margin-top: 3.5%;margin-right: 4%;",@class="btn btn-primary pull-right" })
+             
+                <!-- Header of individual pages -->
+                <div class="page-header">
+                    <h1>Dispensaries</h1>
+                </div>
+                <!-- Content of individual pages -->
+                <div class="dispensary-search well" style="width: 900px; height: 60px;">
+                    <form accept-charset="UTF-8" action="/new_admin/dispensaries" method="get">
+                        <div style="margin: 0; padding: 0; display: inline">
+                            <input name="utf8" type="hidden" value="✓">
+                        </div>
+                        <div class="row">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="col-sm-3">
+                                            <label for="name" style="margin-left: 6px;">Name</label>
+                                            <input class="form-control" id="grid_filters_name_query" name="grid_filters[name][query]" type="text" value="" style="width: 180px; margin-left: 5px;">
+                                            <input id="grid_filters_name_query_type" name="grid_filters[name][query_type]" type="hidden" value="ilike">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-sm-2">
+                                            <label for="id" style="margin-left: -15px;">ID</label>
+                                            <input class="form-control" id="grid_filters_id_query" name="grid_filters[id][query]" type="text" value="" style="width: 100px; margin-left: -15px;">
+                                            <input id="grid_filters_id_query_type" name="grid_filters[id][query_type]" type="hidden" value="exact">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-sm-3">
+                                            <label for="region" style="margin-left: -15px;">Region</label>
+                                            <select class="form-control" id="grid_filters_region_id_query" name="grid_filters[region_id][query]" style="width: 200px; margin-left: -15px;">
+                                                <option value=""></option>
+                                                <optgroup label="Alabama">
+                                                    <option value="1">Alabama</option>
+                                                </optgroup>
+                                                <optgroup label="Alaska">
+                                                    <option value="283">Your Region</option>
+                                                </optgroup>
+                                                <optgroup label="Arizona">
+                                                    <option value="343">Arizona Other</option>
+                                                    <option value="345">East Phoenix</option>
+                                                    <option value="266">Flagstaff</option>
+                                                    <option value="263">Glendale</option>
+                                                    <option value="342">Greater Arizona</option>
+                                                    <option value="271">Havasu/Kingman/Bullhead City</option>
+                                                    <option value="267">Kingman/Bullhead City</option>
+                                                    <option value="262">Mesa</option>
+                                                    <option value="259">Phoenix</option>
+                                                    <option value="268">Prescott</option>
+                                                    <option value="260">Scottsdale</option>
+                                                    <option value="261">Tempe</option>
+                                                    <option value="269">Tucson</option>
+                                                    <option value="344">West Phoenix</option>
+                                                    <option value="270">Yuma</option>
+                                                </optgroup>
+                                                <optgroup label="Arkansas">
+                                                    <option value="4">Arkansas</option>
+                                                </optgroup>
+                                                <optgroup label="California">
+                                                    <option value="275">29 Palms, Yucca / Morongo Valley</option>
+                                                    <option value="86">Alameda County - Hayward/Tri-Valley</option>
+                                                    <option value="204">Alhambra</option>
+                                                    <option value="287">Aliso Viejo/Laguna Beach</option>
+                                                    <option value="148">Anaheim</option>
+                                                    <option value="231">Antelope Valley</option>
+                                                    <option value="82">Bakersfield</option>
+                                                    <option value="314">Barstow/Needles</option>
+                                                    <option value="324">Bay Area</option>
+                                                    <option value="123">Beach Cities</option>
+                                                    <option value="165">Beaumont</option>
+                                                    <option value="85">Berkeley</option>
+                                                    <option value="279">Big Bear</option>
+                                                    <option value="129">Bloomington/Rialto/Colton</option>
+                                                    <option value="202">Brea  and La Habra</option>
+                                                    <option value="116">Camarillo</option>
+                                                    <option value="61">Canoga Park</option>
+                                                    <option value="78">Carson</option>
+                                                    <option value="329">Central Coast</option>
+                                                    <option value="167">Central Sacremento</option>
+                                                    <option value="145">Central San Diego</option>
+                                                    <option value="132">Central Valley</option>
+                                                    <option value="103">Chatsworth</option>
+                                                    <option value="159">Chico</option>
+                                                    <option value="290">Chino</option>
+                                                    <option value="198">Clairemont Kearny</option>
+                                                    <option value="351">Claremont</option>
+                                                    <option value="298">Copy of Orange County</option>
+                                                    <option value="338">Corona</option>
+                                                    <option value="81">Corona/Norco</option>
+                                                    <option value="337">Costa Mesa/Huntington Beach</option>
+                                                    <option value="150">Dana Point / San Clemente</option>
+                                                    <option value="117">Downtown / Central LA</option>
+                                                    <option value="126">Downtown San Diego</option>
+                                                    <option value="135">East Bay</option>
+                                                    <option value="118">East LA</option>
+                                                    <option value="339">East Los Angeles</option>
+                                                    <option value="144">East San Diego</option>
+                                                    <option value="295">El Cajon</option>
+                                                    <option value="93">Encino</option>
+                                                    <option value="97">Fresno</option>
+                                                    <option value="90">Gardena</option>
+                                                    <option value="206">Garden Grove</option>
+                                                    <option value="210">Glendale / Pasadena</option>
+                                                    <option value="63">Granada Hills</option>
+                                                    <option value="256">Hemet/San Jacinto</option>
+                                                    <option value="180">Hesperia</option>
+                                                    <option value="64">Hollywood</option>
+                                                    <option value="100">Humboldt</option>
+                                                    <option value="353">Huntington Beach</option>
+                                                    <option value="196">Huntington Harbor</option>
+                                                    <option value="219">Imperial County</option>
+                                                    <option value="91">Inglewood</option>
+                                                    <option value="166">Irvine  and Tustin</option>
+                                                    <option value="178">Laguna Beach</option>
+                                                    <option value="183">Laguna Hills</option>
+                                                    <option value="288">Lake Arrowhead</option>
+                                                    <option value="112">Lake County</option>
+                                                    <option value="185">Lake Elsinore</option>
+                                                    <option value="111">Lake Tahoe Consultants</option>
+                                                    <option value="106">La Puente/El Monte/SGV</option>
+                                                    <option value="170">LAX/Inglewood</option>
+                                                    <option value="328">Long Beach/Carson</option>
+                                                    <option value="54">Los Angeles</option>
+                                                    <option value="87">Marin</option>
+                                                    <option value="114">Mendocino</option>
+                                                    <option value="299">MidTown/Culver City</option>
+                                                    <option value="249">Mira Loma/Rubidoux</option>
+                                                    <option value="330">Modesto/Stockton</option>
+                                                    <option value="254">Monterey County</option>
+                                                    <option value="303">Moreno Valley</option>
+                                                    <option value="333">Moreno Valley / Perris CA Doctors</option>
+                                                    <option value="134">North Bay</option>
+                                                    <option value="124">North Coast</option>
+                                                    <option value="336">North Coast Doctors</option>
+                                                    <option value="340">Northglenn</option>
+                                                    <option value="98">North Hills</option>
+                                                    <option value="146">North Hollywood</option>
+                                                    <option value="313">North Inland</option>
+                                                    <option value="187">North Long Beach</option>
+                                                    <option value="120">North OC</option>
+                                                    <option value="89">Northridge</option>
+                                                    <option value="212">Northridge/Chatsworth</option>
+                                                    <option value="192">North San Fernando Valley</option>
+                                                    <option value="72">Oakland</option>
+                                                    <option value="127">Ocean Beach</option>
+                                                    <option value="309">Oceanside Carlsbad</option>
+                                                    <option value="327">OLD Temecula/Murrieta</option>
+                                                    <option value="55">Orange County</option>
+                                                    <option value="323">Other Northern Cal</option>
+                                                    <option value="143">Pacific Beach</option>
+                                                    <option value="66">Pacific Palisades to Malibu</option>
+                                                    <option value="334">Palmdale/Antelope Valley</option>
+                                                    <option value="68">Palm Springs</option>
+                                                    <option value="105">Panorama City</option>
+                                                    <option value="280">Perris/Hemet</option>
+                                                    <option value="230">Pomona/Montclair</option>
+                                                    <option value="252">Rancho Cucamonga/Fontana</option>
+                                                    <option value="291">Rancho Santa Margarita</option>
+                                                    <option value="240">Redding/Mt. Shasta</option>
+                                                    <option value="247">Redlands/Mentone</option>
+                                                    <option value="76">Reseda</option>
+                                                    <option value="58">Riverside</option>
+                                                    <option value="84">Sacramento</option>
+                                                    <option value="293">Sacramento West</option>
+                                                    <option value="163">San Bernardino</option>
+                                                    <option value="176">San Clemente</option>
+                                                    <option value="60">San Diego</option>
+                                                    <option value="67">San Fernando</option>
+                                                    <option value="325">San Fernando Valley</option>
+                                                    <option value="56">San Francisco</option>
+                                                    <option value="119">San Gabriel Valley</option>
+                                                    <option value="88">San Jose</option>
+                                                    <option value="177">San Juan Capistrano</option>
+                                                    <option value="207">San Luis Obispo</option>
+                                                    <option value="257">San Marcos</option>
+                                                    <option value="79">San Pedro-Lomita</option>
+                                                    <option value="122">Santa Ana</option>
+                                                    <option value="62">Santa Barbara</option>
+                                                    <option value="312">Santa Clarita</option>
+                                                    <option value="115">Santa Cruz County</option>
+                                                    <option value="95">Santa Fe Springs</option>
+                                                    <option value="83">Santa Monica</option>
+                                                    <option value="92">Sherman Oaks/Studio City</option>
+                                                    <option value="113">Sonoma/Napa</option>
+                                                    <option value="136">South Bay</option>
+                                                    <option value="201">South Bay SD</option>
+                                                    <option value="282">South Contra Costa</option>
+                                                    <option value="94">South Gate/Bellflower/Artesia Dispensaries</option>
+                                                    <option value="347">South LA</option>
+                                                    <option value="65">South Long Beach</option>
+                                                    <option value="121">South OC</option>
+                                                    <option value="125">South San Diego</option>
+                                                    <option value="250">South San Jose/Campbell</option>
+                                                    <option value="133">Stockton</option>
+                                                    <option value="74">Studio City</option>
+                                                    <option value="73">Sun Valley</option>
+                                                    <option value="104">Sylmar</option>
+                                                    <option value="213">Sylmar/Pacoima/Panorama</option>
+                                                    <option value="75">Tarzana</option>
+                                                    <option value="128">Temecula / Murrieta</option>
+                                                    <option value="168">The Foothills Sacramento</option>
+                                                    <option value="277">The Peninsula</option>
+                                                    <option value="301">Thousand Palms/Palm Desert Dispensaries</option>
+                                                    <option value="101">Tujunga/Sunland</option>
+                                                    <option value="300">Upland</option>
+                                                    <option value="107">Vallejo</option>
+                                                    <option value="77">Valley Village</option>
+                                                    <option value="211">Van Nuys</option>
+                                                    <option value="70">Venice/Marina Del Rey</option>
+                                                    <option value="326">Venice/Santa Monica</option>
+                                                    <option value="130">Ventura</option>
+                                                    <option value="289">Victorville/High Desert</option>
+                                                    <option value="284">Visalia</option>
+                                                    <option value="109">WeedMaps Blog</option>
+                                                    <option value="188">West Hollywood</option>
+                                                    <option value="108">West Los Angeles</option>
+                                                    <option value="232">Westminster / Sunset Beach Marijuana</option>
+                                                    <option value="71">Woodland Hills</option>
+                                                    <option value="214">Woodland Hills/Tarzana/Canoga</option>
+                                                    <option value="182">Yorba Linda</option>
+                                                    <option value="164">Yucaipa/Beaumont</option>
+                                                    <option value="315">Yucca Valley</option>
+                                                </optgroup>
+                                                <optgroup label="Canada">
+                                                    <option value="253">Vancouver / Victoria</option>
+                                                </optgroup>
+                                                <optgroup label="Colorado">
+                                                    <option value="203">Aspen Colorado</option>
+                                                    <option value="255">Aurora East Denver</option>
+                                                    <option value="137">Boulder</option>
+                                                    <option value="228">British Columbia</option>
+                                                    <option value="205">Colorado North and East</option>
+                                                    <option value="138">Colorado Springs</option>
+                                                    <option value="139">Denver</option>
+                                                    <option value="151">Denver Central</option>
+                                                    <option value="308">Denver Highlands</option>
+                                                    <option value="154">Denver North</option>
+                                                    <option value="171">East Denver</option>
+                                                    <option value="248">Eastern Slope</option>
+                                                    <option value="322">Front Range</option>
+                                                    <option value="174">Ft Collins</option>
+                                                    <option value="162">Lakewood</option>
+                                                    <option value="175">Littleton</option>
+                                                    <option value="186">Littleton/Engelwood/DTC</option>
+                                                    <option value="160">Longmont</option>
+                                                    <option value="229">North West Colorado</option>
+                                                    <option value="173">Pueblo</option>
+                                                    <option value="226">Quebec</option>
+                                                    <option value="172">South East Denver</option>
+                                                    <option value="140">South West Colorado</option>
+                                                    <option value="179">Summit / Eagle County</option>
+                                                </optgroup>
+                                                <optgroup label="Connecticut">
+                                                    <option value="7">Connecticut</option>
+                                                </optgroup>
+                                                <optgroup label="Delaware">
+                                                    <option value="8">Delaware</option>
+                                                </optgroup>
+                                                <optgroup label="District of Columbia">
+                                                    <option value="53">District of Columbia</option>
+                                                </optgroup>
+                                                <optgroup label="Florida">
+                                                    <option value="9">Florida</option>
+                                                </optgroup>
+                                                <optgroup label="Georgia">
+                                                    <option value="10">Georgia</option>
+                                                </optgroup>
+                                                <optgroup label="Hawaii">
+                                                    <option value="11">Hawaii</option>
+                                                </optgroup>
+                                                <optgroup label="Idaho">
+                                                    <option value="15">Idaho</option>
+                                                </optgroup>
+                                                <optgroup label="Illinois">
+                                                    <option value="12">Illinois</option>
+                                                </optgroup>
+                                                <optgroup label="Indiana">
+                                                    <option value="13">Indiana</option>
+                                                </optgroup>
+                                                <optgroup label="Iowa">
+                                                    <option value="14">Iowa</option>
+                                                </optgroup>
+                                                <optgroup label="Kansas">
+                                                    <option value="16">Kansas</option>
+                                                </optgroup>
+                                                <optgroup label="Kentucky">
+                                                    <option value="17">Kentucky</option>
+                                                </optgroup>
+                                                <optgroup label="Louisiana">
+                                                    <option value="18">Louisiana</option>
+                                                </optgroup>
+                                                <optgroup label="Maine">
+                                                    <option value="19">Maine</option>
+                                                </optgroup>
+                                                <optgroup label="Maryland">
+                                                    <option value="24">Maryland</option>
+                                                </optgroup>
+                                                <optgroup label="Massachusetts">
+                                                    <option value="26">Massachusetts</option>
+                                                </optgroup>
+                                                <optgroup label="Michigan">
+                                                    <option value="237">Ann Arbor</option>
+                                                    <option value="320">Benton Harbor / Holland</option>
+                                                    <option value="286">Bloomfield Township</option>
+                                                    <option value="233">Detroit</option>
+                                                    <option value="317">Downriver</option>
+                                                    <option value="281">Flint</option>
+                                                    <option value="161">Grand Junction</option>
+                                                    <option value="318">Jackson</option>
+                                                    <option value="235">Lansing/Jackson</option>
+                                                    <option value="236">Mid Michigan</option>
+                                                    <option value="184">Northern Michigan/Traverse City</option>
+                                                    <option value="331">Other Michigan</option>
+                                                    <option value="239">SW Michigan</option>
+                                                    <option value="319">Upper Peninsula</option>
+                                                    <option value="234">Waterford</option>
+                                                    <option value="316">Ypsilanti</option>
+                                                </optgroup>
+                                                <optgroup label="Minnesota">
+                                                    <option value="20">Minnesota</option>
+                                                </optgroup>
+                                                <optgroup label="Mississippi">
+                                                    <option value="23">Mississippi</option>
+                                                </optgroup>
+                                                <optgroup label="Missouri">
+                                                    <option value="25">Missouri</option>
+                                                </optgroup>
+                                                <optgroup label="Montana">
+                                                    <option value="22">Montana</option>
+                                                </optgroup>
+                                                <optgroup label="Nebraska">
+                                                    <option value="27">Nebraska</option>
+                                                </optgroup>
+                                                <optgroup label="Netherlands">
+                                                    <option value="152">Amsterdam</option>
+                                                    <option value="341">Haarlem</option>
+                                                </optgroup>
+                                                <optgroup label="Nevada">
+                                                    <option value="200">East Las Vegas Consultants</option>
+                                                    <option value="305">Las Vegas</option>
+                                                    <option value="217">North Las Vegas</option>
+                                                    <option value="352">North Las Vegas - DELETE</option>
+                                                    <option value="199">Reno Consultants</option>
+                                                    <option value="218">South Las Vegas Cannbis Clubs</option>
+                                                    <option value="215">West Las Vegas Consultants</option>
+                                                </optgroup>
+                                                <optgroup label="New Hampshire">
+                                                    <option value="30">New Hampshire</option>
+                                                </optgroup>
+                                                <optgroup label="New Jersey">
+                                                    <option value="29">New Jersey</option>
+                                                </optgroup>
+                                                <optgroup label="New Mexico">
+                                                    <option value="31">New Mexico</option>
+                                                </optgroup>
+                                                <optgroup label="New York">
+                                                    <option value="32">New York</option>
+                                                </optgroup>
+                                                <optgroup label="North Carolina">
+                                                    <option value="33">North Carolina</option>
+                                                </optgroup>
+                                                <optgroup label="North Dakota">
+                                                    <option value="34">North Dakota</option>
+                                                </optgroup>
+                                                <optgroup label="Ohio">
+                                                    <option value="35">Ohio</option>
+                                                </optgroup>
+                                                <optgroup label="Oklahoma">
+                                                    <option value="36">Oklahoma</option>
+                                                </optgroup>
+                                                <optgroup label="Oregon">
+                                                    <option value="348">East Portland</option>
+                                                    <option value="350">Other Oregon</option>
+                                                    <option value="349">West Portland</option>
+                                                </optgroup>
+                                                <optgroup label="Pennsylvania">
+                                                    <option value="38">Pennsylvania</option>
+                                                </optgroup>
+                                                <optgroup label="Rhode Island">
+                                                    <option value="222">Rhode Island Cannbis Clubs</option>
+                                                </optgroup>
+                                                <optgroup label="South Carolina">
+                                                    <option value="40">South Carolina</option>
+                                                </optgroup>
+                                                <optgroup label="South Dakota">
+                                                    <option value="41">South Dakota</option>
+                                                </optgroup>
+                                                <optgroup label="Tennessee">
+                                                    <option value="42">Tennessee</option>
+                                                </optgroup>
+                                                <optgroup label="Texas">
+                                                    <option value="43">Texas</option>
+                                                </optgroup>
+                                                <optgroup label="Utah">
+                                                    <option value="44">Utah</option>
+                                                </optgroup>
+                                                <optgroup label="Vermont">
+                                                    <option value="45">Vermont</option>
+                                                </optgroup>
+                                                <optgroup label="Virginia">
+                                                    <option value="46">Virginia</option>
+                                                </optgroup>
+                                                <optgroup label="Washington">
+                                                    <option value="141">Bellingham</option>
+                                                    <option value="335">Bellingham/Mt. Vernon</option>
+                                                    <option value="311">Eastside Seattle</option>
+                                                    <option value="306">Everett/Snohomish</option>
+                                                    <option value="296">Kent</option>
+                                                    <option value="346">Kitsap County</option>
+                                                    <option value="302">North Tacoma/Federal Way</option>
+                                                    <option value="294">N Tacoma/Federal Way</option>
+                                                    <option value="244">Olympia/Thurston County</option>
+                                                    <option value="276">Olympic Peninsula</option>
+                                                    <option value="227">Ontario</option>
+                                                    <option value="274">Pullman</option>
+                                                    <option value="321">Seattle</option>
+                                                    <option value="310">Seattle Central</option>
+                                                    <option value="285">Seattle/North Dispensaries</option>
+                                                    <option value="242">Seattle/South</option>
+                                                    <option value="245">Spokane/Eastern Washington</option>
+                                                    <option value="332">Tacoma/Olympia</option>
+                                                    <option value="243">Tacoma/Pierce County</option>
+                                                    <option value="272">Vancouver/SW Washington</option>
+                                                    <option value="307">Vancouver Washington</option>
+                                                </optgroup>
+                                                <optgroup label="West Virginia">
+                                                    <option value="48">West Virginia</option>
+                                                </optgroup>
+                                                <optgroup label="Wisconsin">
+                                                    <option value="49">Wisconsin</option>
+                                                </optgroup>
+                                                <optgroup label="Wyoming">
+                                                    <option value="50">Wyoming</option>
+                                                </optgroup>
+                                            </select>
+                                            <input id="grid_filters_region_id_query_type" name="grid_filters[region_id][query_type]" type="hidden" value="exact">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-sm-3">
+                                            <label for="published" style="margin-left: -15px;">Published</label>
+                                            <select class="form-control" id="grid_filters_published_query" name="grid_filters[published][query]" style="width: 200px; margin-left: -15px;">
+                                                <option value=""></option>
+                                                <option value="true">Yes</option>
+                                                <option value="false">No</option>
+                                            </select>
+                                            <input id="grid_filters_published_query_type" name="grid_filters[published][query_type]" type="hidden" value="exact">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-sm-1">
+                                            <input class="btn btn-default pull-left" name="search" style="margin-top: 20px;" type="submit" value="Search">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>ID</th>
+                            <th class="hidden-xs">Created</th>
+                            <th class="hidden-xs">Region</th>
+                            <th>Published</th>
+                            <th class="hidden-xs">Menu Items</th>
+                            <th class="hidden-xs">Reviews</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.lstdvm)
+                        {
+                            <tr>
+                                <td style="max-width: 30px;">
+                                    <img alt="Square_desert" height="25" src="@Url.Content(item.AvtarPathName)" width="25"></td>
+                                <td style="max-width: 300px;">@Html.ActionLink(item.DispensaryName, "ViewDispensaries/" + item.DispensaryId, new { @Controller = "Properties" })</td>
+                                <td>@item.DispensaryId</td>
+                                <td class="hidden-xs">10/25/2013 at 10:47AM</td>
+                                <td class="hidden-xs"><a href="/regions/alabama">Alabama</a></td>
+                                <td>No</td>
+                                <td class="hidden-xs">0</td>
+                                <td class="hidden-xs">0</td>
+                                <td>
+                                    <!-- Single button dropdown -->
+                                    <div class="btn-group ">
+                                        <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+                                            Action <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menuweed pull-right">
+                                            <li>@Html.ActionLink("Edit", "EditDispensary/" + item.DispensaryId, new { @Controller = "Properties" })</li>
+                                            <li>@Html.ActionLink("View", "ViewDispensaries/" + item.DispensaryId, new { @Controller = "Properties" })</li>
+                                            <li><a href="#">Menu Items</a></li>
+                                            <li><a href="#">Reviews</a></li>
+                                            <li><a href="#">Coupon</a></li>
+                                            <li>@Html.ActionLink("Picture", "Pictures", new { @Controller = "Properties" })</li>
+                                            <li>@Html.ActionLink("Video", "Videos", new { @Controller = "Properties" })</li>
+
+
+                                            <li class="divider"></li>
+                                            <li>@Html.ActionLink("Back to Dispensaries", "Dispensaries", new { @Controller = "Properties" })</li>
+                                        </ul>
+                                    </div>
+
+
+                                </td>
+                            </tr>
+                        }
+                        @*<tr>
+                            <td style="max-width: 30px;">
+                                <img alt="Square_tulips" height="25" src="https://d123t173g8yxd6.cloudfront.net/uploads/avatars/dispensaries/27459/square_Tulips.jpg" width="25"></td>
+                            <td style="max-width: 300px;"><a href="/dispensaries/piyush-patel">piyush patel</a></td>
+                            <td>27459</td>
+                            <td class="hidden-xs">10/25/2013 at 09:41AM</td>
+                            <td class="hidden-xs"><a href="/regions/alabama">Alabama</a></td>
+                            <td>No</td>
+                            <td class="hidden-xs">0</td>
+                            <td class="hidden-xs">0</td>
+                            <td>
+                                <!-- Single button dropdown -->
+                                <div class="btn-group ">
+                                    <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+                                        Action <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menuweed pull-right">
+                                        <li><a href="/new_admin/dispensaries/piyush-patel/edit">Edit</a></li>
+                                        <li><a href="/dispensaries/piyush-patel">View</a></li>
+                                        <li><a href="/new_admin/dispensaries/piyush-patel/menu_items">Menu Items</a></li>
+                                        <li><a href="/new_admin/dispensaries/piyush-patel/reviews">Reviews</a></li>
+                                        <li><a href="/new_admin/coupons/16065/edit">Coupon</a></li>
+                                        <li><a href="/new_admin/dispensaries/piyush-patel/pictures">Pictures</a></li>
+                                        <li><a href="/new_admin/dispensaries/piyush-patel/videos">Videos</a></li>
+
+
+                                        <li class="divider"></li>
+                                        <li><a href="/new_admin/dispensaries">Back to Dispensaries</a></li>
+                                    </ul>
+                                </div>
+
+
+                            </td>
+                        </tr>*@
+                    </tbody>
+                </table>
+
+
+
+            </div>
+        </div>
+
+
+
+
+        <!-- start Footer -->
+        <div id="footer-wrapper">
+            <!-- start footer-ribon -->
+            <div class="container">
+                <div class="footer-ribon">
+                    <span>Get in Touch</span>
+                </div>
+            </div>
+            <!-- end footer-ribon -->
+            <div id="footer-top">
+                <div class="container">
+                    <div class="row-fluid">
+                        <div class="span3">
+                            <div class="panel">
+                                <h4><i class="icon-time"></i>Contact</h4>
+                                <p>Nullam justo nunc, dignissim at convallis posuere, sodales eu orci.</p>
+                                <ul class="unstyled">
+                                    <li><i class="icon-home"></i>123, Los Angeles, CA, 54321</li>
+                                    <li><i class="icon-phone"></i>+239-3823-3434</li>
+                                    <li><i class="icon-envelope"></i>someone@company.com</li>
+                                </ul>
+
+
+                                <a href="#" class="btn-proper btn"><i class="icon-facebook"></i></a>
+                                <a href="#" class="btn-proper btn"><i class="icon-twitter"></i></a>
+                                <a href="#" class="btn-proper btn"><i class="icon-google-plus"></i></a>
+                                <a href="#" class="btn-proper btn"><i class="icon-pinterest"></i></a>
+
+
+                            </div>
+                        </div>
+                        <div class="span3">
+                            <div class="panel">
+                                <h4><i class="icon-suitcase"></i>Pages Link</h4>
+                                <ul class="unstyled list-link">
+                                    <li><a href="#">Condimentum - Condimentum gravida</a></li>
+                                    <li><a href="#">Etiam at - Condimentum gravida</a></li>
+                                    <li><a href="#">Fusce vel - Condimentum gravida</a></li>
+                                    <li><a href="#">Vivamus - Condimentum gravida</a></li>
+                                    <li><a href="#">Pellentesque - Condimentum gravida</a></li>
+                                    <li><a href="#">Fusce vel - Condimentum gravida</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="span3">
+                            <div class="panel">
+                                <h4><i class="icon-screenshot"></i>Subscribe</h4>
+
+                                <form>
+                                    <label>Full Name</label>
+                                    <input type="text" name="" value="" placeholder="Enter Your Full Name" required="" />
+                                    <label>Email</label>
+                                    <input type="email" name="" value="" placeholder="Enter Your Email" required="" />
+                                    <div>
+                                        <button class="btn-proper btn">Send</button>
+                                    </div>
+
+
+
+                                </form>
+                            </div>
+                        </div>
+                        <div class="span3">
+                            <div class="panel">
+                                <h4><i class="icon-trophy"></i>Recent News</h4>
+                                <ul class="unstyled list-link">
+                                    <li><a href="#">Sed eu leo orci, condimentum gravida metus</a></li>
+                                    <li><a href="#">Etiam at nulla ipsum, in rhoncus purus</a></li>
+                                    <li><a href="#">Fusce vel magna faucibus felis dapibus facilisis</a></li>
+                                    <li><a href="#">Vivamus scelerisque dui in massa</a></li>
+                                    <li><a href="#">Pellentesque eget adipiscing dui semper</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="back-to-top" class="text-center"><a href="#"><i class="icon-angle-up"></i></a></div>
+            </div>
+            <div id="footer-twit" class="text-center">
+                <div class="container">
+                    <div class="panel">
+                        <p><i class="icon-twitter icon-4x"></i><i class="icon-quote-left qoute"></i>Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet ... <i class="icon-quote-right qoute"></i></p>
+                    </div>
+                </div>
+            </div>
+            <div id="footer" class="text-center">
+                <div class="panel">
+                    <p>Copyright &copy; <a href="#">Your Site</a> - <a href="index.html">Home</a> | <a href="about_us.html">About Us</a> | <a href="faq.html">FAQ</a> | <a href="contact.html">Contact Us</a> | <a href="career.html">Career</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- end  Footer -->
+    </div>
+    <!-- End Wrapper-->
+    <!-- Just For Demo You can Remove it if unnecessary-->
+    @*<a href="custum-bg.html" class="ajax-demo"><i class="  icon-cogs"></i></a>*@
+
+    <!-- Defaut Js Bootsrap
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="~/content/assets/js/jquery.js"></script>
+    <script src="~/content/assets/js/jquery-ui.js"></script>
+    <script src="~/content/assets/js/bootstrap-transition.js"></script>
+    <script src="~/content/assets/js/bootstrap-alert.js"></script>
+    <script src="~/content/assets/js/bootstrap-modal.js"></script>
+    <script src="~/content/assets/js/bootstrap-dropdown.js"></script>
+    <script src="~/content/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="~/content/assets/js/bootstrap-tab.js"></script>
+
+    <script src="~/content/assets/js/bootstrap-tooltip.js"></script>
+    <script src="~/content/assets/js/bootstrap-popover.js"></script>
+    <script src="~/content/assets/js/bootstrap-button.js"></script>
+    <script src="~/content/assets/js/bootstrap-collapse.js"></script>
+    <script src="~/content/assets/js/bootstrap-carousel.js"></script>
+    <script src="~/content/assets/js/bootstrap-typeahead.js"></script>
+    <script src="~/content/assets/js/jquery.ui.timepicker.js"></script>
+    <script src="~/content/assets/js/jquery.validate.min.js"></script>
+    <script src="~/content/assets/js/jquery.validate.unobtrusive.min.js"></script>
+    <!-- Grid -->
+    <script src="~/content/proper_theme/js/Grid-A-Licious-master/jquery.grid-a-licious.min.js"></script>
+
+    <!-- Slider -->
+    <script src="~/content/proper_theme/js/carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <!-- optionally include helper plugins carouFredSel -->
+    <script src="~/content/proper_theme/js/carouFredSel-6.2.1/helper-plugins/jquery.mousewheel.min.js"></script>
+    <script src="~/content/proper_theme/js/carouFredSel-6.2.1/helper-plugins/jquery.touchSwipe.min.js"></script>
+    <script src="~/content/proper_theme/js/carouFredSel-6.2.1/helper-plugins/jquery.transit.min.js"></script>
+    <script src="~/content/proper_theme/js/carouFredSel-6.2.1/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
+
+    <!-- JS GMAP3  -->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src='~/content/proper_theme/js/gmap3/gmap3.min.js'></script>
+
+    <script src="~/content/proper_theme/js/colorbox/jquery.colorbox-min.js"></script>
+    <script src="~/content/proper_theme/js/proper.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $("#hours_sun_opening_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_sun_closing_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_mon_opening_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_mon_closing_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_tue_opening_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_tue_closing_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_wed_opening_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_wed_closing_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_thu_opening_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_thu_closing_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_fri_opening_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_fri_closing_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_sat_opening_time").timepicker({ showPeriod: true, showLeadingZero: true });
+            $("#hours_sat_closing_time").timepicker({ showPeriod: true, showLeadingZero: true });
+
+
+        });
+
+    </script>
+
+</body>
+</html>
+
+

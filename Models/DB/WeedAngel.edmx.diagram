@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0c35f98a15dd42eda8f3d93c9b009fad" Name="Diagram1">
+        <EntityTypeShape EntityType="WeedAngelModel.Dispensary" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeedAngelModel.Doctor" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeedAngelModel.Picture" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeedAngelModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeedAngelModel.User" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeedAngelModel.Video" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <AssociationConnector Association="WeedAngelModel.FK_Dispensary_ToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="WeedAngelModel.FK_Pictures_ToDispensary" ManuallyRouted="false" />
+        <AssociationConnector Association="WeedAngelModel.FK_Video_ToDispensary" ManuallyRouted="false" />
+        <AssociationConnector Association="WeedAngelModel.FK_Doctor_ToUser" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WeedAngelModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="WeedAngelModelStoreContainer">
+          <EntitySet Name="Dispensary" EntityType="WeedAngelModel.Store.Dispensary" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Doctor" EntityType="WeedAngelModel.Store.Doctor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pictures" EntityType="WeedAngelModel.Store.Pictures" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="WeedAngelModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="WeedAngelModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Video" EntityType="WeedAngelModel.Store.Video" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Dispensary_ToUser" Association="WeedAngelModel.Store.FK_Dispensary_ToUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="Dispensary" EntitySet="Dispensary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Doctor_ToUser" Association="WeedAngelModel.Store.FK_Doctor_ToUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="Doctor" EntitySet="Doctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pictures_ToDispensary" Association="WeedAngelModel.Store.FK_Pictures_ToDispensary">
+            <End Role="Dispensary" EntitySet="Dispensary" />
+            <End Role="Pictures" EntitySet="Pictures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Video_ToDispensary" Association="WeedAngelModel.Store.FK_Video_ToDispensary">
+            <End Role="Dispensary" EntitySet="Dispensary" />
+            <End Role="Video" EntitySet="Video" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Dispensary">
+          <Key>
+            <PropertyRef Name="DispensaryId" />
+          </Key>
+          <Property Name="DispensaryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DispensaryName" Type="nvarchar(max)" />
+          <Property Name="Street" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zipcode" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegionId" Type="int" />
+          <Property Name="TimeZoneId" Type="int" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Website" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="AvatarName" Type="nvarchar(max)" />
+          <Property Name="AvatarPath" Type="nvarchar(max)" />
+          <Property Name="Facebook" Type="nvarchar(max)" />
+          <Property Name="Twitter" Type="nvarchar(max)" />
+          <Property Name="Instagram" Type="nvarchar(max)" />
+          <Property Name="IntroBody" Type="nvarchar(max)" />
+          <Property Name="Body" Type="nvarchar(max)" />
+          <Property Name="IsHandicap" Type="bit" />
+          <Property Name="IsSecurityGuard" Type="bit" />
+          <Property Name="IsLounge" Type="bit" />
+          <Property Name="IsCreditCards" Type="bit" />
+          <Property Name="Is18" Type="bit" />
+          <Property Name="Is21" Type="bit" />
+          <Property Name="IsPictures" Type="bit" />
+          <Property Name="IsVideos" Type="bit" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="SunDayOpen" Type="nvarchar" MaxLength="50" />
+          <Property Name="SunDayClose" Type="nvarchar" MaxLength="50" />
+          <Property Name="MonDayOpen" Type="nvarchar" MaxLength="50" />
+          <Property Name="MonDayClose" Type="nvarchar" MaxLength="50" />
+          <Property Name="TuesDayOpen" Type="nvarchar" MaxLength="50" />
+          <Property Name="TuesDayClose" Type="nvarchar" MaxLength="50" />
+          <Property Name="WednesDayOpen" Type="nvarchar" MaxLength="50" />
+          <Property Name="WednesDayClose" Type="nvarchar" MaxLength="50" />
+          <Property Name="ThursDayOpen" Type="nvarchar" MaxLength="50" />
+          <Property Name="ThursDayClose" Type="nvarchar" MaxLength="50" />
+          <Property Name="FriDayOpen" Type="nvarchar" MaxLength="50" />
+          <Property Name="FriDayClose" Type="nvarchar" MaxLength="50" />
+          <Property Name="SaturDayOpen" Type="nvarchar" MaxLength="50" />
+          <Property Name="SaturDayClose" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="DoctorId" />
+          </Key>
+          <Property Name="DoctorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DoctorName" Type="nvarchar(max)" />
+          <Property Name="Street" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zipcode" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegionId" Type="int" />
+          <Property Name="TimeZoneId" Type="int" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Website" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="AvatarName" Type="nvarchar(max)" />
+          <Property Name="AvatarPath" Type="nvarchar(max)" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsHandicap" Type="bit" />
+          <Property Name="IsSecurityGuard" Type="bit" />
+          <Property Name="IsCreditCards" Type="bit" />
+          <Property Name="Is18" Type="bit" />
+          <Property Name="Is21" Type="bit" />
+          <Property Name="IntroBody" Type="nvarchar(max)" />
+          <Property Name="Body" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="Pictures">
+          <Key>
+            <PropertyRef Name="PictureId" />
+          </Key>
+          <Property Name="PictureId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PictureName" Type="nvarchar(max)" />
+          <Property Name="PicturePath" Type="nvarchar(max)" />
+          <Property Name="DispensaryId" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="FullName" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="ActivationCode" Type="nvarchar(max)" />
+          <Property Name="RequestedActivationDate" Type="datetime" />
+          <Property Name="ProfileImageName" Type="nvarchar(max)" />
+          <Property Name="ProfileImagePath" Type="nvarchar(max)" />
+          <Property Name="State" Type="nvarchar(max)" />
+          <Property Name="Zipcode" Type="nvarchar(max)" />
+          <Property Name="RegionId" Type="int" />
+          <Property Name="Facebook" Type="nvarchar(max)" />
+          <Property Name="Twitter" Type="nvarchar(max)" />
+          <Property Name="Instagram" Type="nvarchar(max)" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaritalStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="FavWayToGetHigh" Type="nvarchar(max)" />
+          <Property Name="FavDispensory" Type="nvarchar(max)" />
+          <Property Name="FavStrains" Type="nvarchar(max)" />
+          <Property Name="AboutMe" Type="nvarchar(max)" />
+          <Property Name="TellForGetHigh" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="VideoId" />
+          </Key>
+          <Property Name="VideoId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="VideoName" Type="nvarchar(max)" />
+          <Property Name="VideoSource" Type="nvarchar(max)" />
+          <Property Name="DispensaryId" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="VideoImageSrc" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_Dispensary_ToUser">
+          <End Role="User" Type="WeedAngelModel.Store.User" Multiplicity="0..1" />
+          <End Role="Dispensary" Type="WeedAngelModel.Store.Dispensary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Dispensary">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Doctor_ToUser">
+          <End Role="User" Type="WeedAngelModel.Store.User" Multiplicity="0..1" />
+          <End Role="Doctor" Type="WeedAngelModel.Store.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pictures_ToDispensary">
+          <End Role="Dispensary" Type="WeedAngelModel.Store.Dispensary" Multiplicity="0..1" />
+          <End Role="Pictures" Type="WeedAngelModel.Store.Pictures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dispensary">
+              <PropertyRef Name="DispensaryId" />
+            </Principal>
+            <Dependent Role="Pictures">
+              <PropertyRef Name="DispensaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Video_ToDispensary">
+          <End Role="Dispensary" Type="WeedAngelModel.Store.Dispensary" Multiplicity="0..1" />
+          <End Role="Video" Type="WeedAngelModel.Store.Video" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dispensary">
+              <PropertyRef Name="DispensaryId" />
+            </Principal>
+            <Dependent Role="Video">
+              <PropertyRef Name="DispensaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WeedAngelModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="WeedAngelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dispensaries" EntityType="WeedAngelModel.Dispensary" />
+          <EntitySet Name="Doctors" EntityType="WeedAngelModel.Doctor" />
+          <EntitySet Name="Pictures" EntityType="WeedAngelModel.Picture" />
+          <EntitySet Name="sysdiagrams" EntityType="WeedAngelModel.sysdiagram" />
+          <EntitySet Name="Users" EntityType="WeedAngelModel.User" />
+          <EntitySet Name="Videos" EntityType="WeedAngelModel.Video" />
+          <AssociationSet Name="FK_Dispensary_ToUser" Association="WeedAngelModel.FK_Dispensary_ToUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Dispensary" EntitySet="Dispensaries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pictures_ToDispensary" Association="WeedAngelModel.FK_Pictures_ToDispensary">
+            <End Role="Dispensary" EntitySet="Dispensaries" />
+            <End Role="Pictures" EntitySet="Pictures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Video_ToDispensary" Association="WeedAngelModel.FK_Video_ToDispensary">
+            <End Role="Dispensary" EntitySet="Dispensaries" />
+            <End Role="Video" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Doctor_ToUser" Association="WeedAngelModel.FK_Doctor_ToUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Doctor" EntitySet="Doctors" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Dispensary">
+          <Key>
+            <PropertyRef Name="DispensaryId" />
+          </Key>
+          <Property Name="DispensaryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DispensaryName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Street" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Zipcode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="RegionId" Type="Int32" />
+          <Property Name="TimeZoneId" Type="Int32" />
+          <Property Name="PhoneNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Website" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AvatarName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AvatarPath" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Facebook" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Twitter" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Instagram" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IntroBody" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Body" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IsHandicap" Type="Boolean" />
+          <Property Name="IsSecurityGuard" Type="Boolean" />
+          <Property Name="IsLounge" Type="Boolean" />
+          <Property Name="IsCreditCards" Type="Boolean" />
+          <Property Name="Is18" Type="Boolean" />
+          <Property Name="Is21" Type="Boolean" />
+          <Property Name="IsPictures" Type="Boolean" />
+          <Property Name="IsVideos" Type="Boolean" />
+          <Property Name="Country" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SunDayOpen" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SunDayClose" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MonDayOpen" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MonDayClose" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TuesDayOpen" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TuesDayClose" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="WednesDayOpen" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="WednesDayClose" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ThursDayOpen" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ThursDayClose" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FriDayOpen" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FriDayClose" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SaturDayOpen" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SaturDayClose" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="WeedAngelModel.FK_Dispensary_ToUser" FromRole="Dispensary" ToRole="User" />
+          <NavigationProperty Name="Pictures" Relationship="WeedAngelModel.FK_Pictures_ToDispensary" FromRole="Dispensary" ToRole="Pictures" />
+          <NavigationProperty Name="Videos" Relationship="WeedAngelModel.FK_Video_ToDispensary" FromRole="Dispensary" ToRole="Video" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="DoctorId" />
+          </Key>
+          <Property Name="DoctorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DoctorName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Street" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Zipcode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="RegionId" Type="Int32" />
+          <Property Name="TimeZoneId" Type="Int32" />
+          <Property Name="PhoneNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Website" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AvatarName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AvatarPath" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Country" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="IsHandicap" Type="Boolean" />
+          <Property Name="IsSecurityGuard" Type="Boolean" />
+          <Property Name="IsCreditCards" Type="Boolean" />
+          <Property Name="Is18" Type="Boolean" />
+          <Property Name="Is21" Type="Boolean" />
+          <Property Name="IntroBody" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Body" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="WeedAngelModel.FK_Doctor_ToUser" FromRole="Doctor" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Picture">
+          <Key>
+            <PropertyRef Name="PictureId" />
+          </Key>
+          <Property Name="PictureId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PictureName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PicturePath" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DispensaryId" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Dispensary" Relationship="WeedAngelModel.FK_Pictures_ToDispensary" FromRole="Pictures" ToRole="Dispensary" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="FullName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ActivationCode" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="RequestedActivationDate" Type="DateTime" Precision="3" />
+          <Property Name="ProfileImageName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ProfileImagePath" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Zipcode" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="RegionId" Type="Int32" />
+          <Property Name="Facebook" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Twitter" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Instagram" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MaritalStatus" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="FavWayToGetHigh" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="FavDispensory" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="FavStrains" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AboutMe" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="TellForGetHigh" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Dispensaries" Relationship="WeedAngelModel.FK_Dispensary_ToUser" FromRole="User" ToRole="Dispensary" />
+          <NavigationProperty Name="Doctors" Relationship="WeedAngelModel.FK_Doctor_ToUser" FromRole="User" ToRole="Doctor" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="VideoId" />
+          </Key>
+          <Property Name="VideoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VideoName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="VideoSource" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DispensaryId" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="VideoImageSrc" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Dispensary" Relationship="WeedAngelModel.FK_Video_ToDispensary" FromRole="Video" ToRole="Dispensary" />
+        </EntityType>
+        <Association Name="FK_Dispensary_ToUser">
+          <End Role="User" Type="WeedAngelModel.User" Multiplicity="0..1" />
+          <End Role="Dispensary" Type="WeedAngelModel.Dispensary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Dispensary">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pictures_ToDispensary">
+          <End Role="Dispensary" Type="WeedAngelModel.Dispensary" Multiplicity="0..1" />
+          <End Role="Pictures" Type="WeedAngelModel.Picture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dispensary">
+              <PropertyRef Name="DispensaryId" />
+            </Principal>
+            <Dependent Role="Pictures">
+              <PropertyRef Name="DispensaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Video_ToDispensary">
+          <End Role="Dispensary" Type="WeedAngelModel.Dispensary" Multiplicity="0..1" />
+          <End Role="Video" Type="WeedAngelModel.Video" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dispensary">
+              <PropertyRef Name="DispensaryId" />
+            </Principal>
+            <Dependent Role="Video">
+              <PropertyRef Name="DispensaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Doctor_ToUser">
+          <End Role="User" Type="WeedAngelModel.User" Multiplicity="0..1" />
+          <End Role="Doctor" Type="WeedAngelModel.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WeedAngelModelStoreContainer" CdmEntityContainer="WeedAngelEntities">
+          <EntitySetMapping Name="Dispensaries">
+            <EntityTypeMapping TypeName="WeedAngelModel.Dispensary">
+              <MappingFragment StoreEntitySet="Dispensary">
+                <ScalarProperty Name="DispensaryId" ColumnName="DispensaryId" />
+                <ScalarProperty Name="DispensaryName" ColumnName="DispensaryName" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="TimeZoneId" ColumnName="TimeZoneId" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AvatarName" ColumnName="AvatarName" />
+                <ScalarProperty Name="AvatarPath" ColumnName="AvatarPath" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="IntroBody" ColumnName="IntroBody" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="IsHandicap" ColumnName="IsHandicap" />
+                <ScalarProperty Name="IsSecurityGuard" ColumnName="IsSecurityGuard" />
+                <ScalarProperty Name="IsLounge" ColumnName="IsLounge" />
+                <ScalarProperty Name="IsCreditCards" ColumnName="IsCreditCards" />
+                <ScalarProperty Name="Is18" ColumnName="Is18" />
+                <ScalarProperty Name="Is21" ColumnName="Is21" />
+                <ScalarProperty Name="IsPictures" ColumnName="IsPictures" />
+                <ScalarProperty Name="IsVideos" ColumnName="IsVideos" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="SunDayOpen" ColumnName="SunDayOpen" />
+                <ScalarProperty Name="SunDayClose" ColumnName="SunDayClose" />
+                <ScalarProperty Name="MonDayOpen" ColumnName="MonDayOpen" />
+                <ScalarProperty Name="MonDayClose" ColumnName="MonDayClose" />
+                <ScalarProperty Name="TuesDayOpen" ColumnName="TuesDayOpen" />
+                <ScalarProperty Name="TuesDayClose" ColumnName="TuesDayClose" />
+                <ScalarProperty Name="WednesDayOpen" ColumnName="WednesDayOpen" />
+                <ScalarProperty Name="WednesDayClose" ColumnName="WednesDayClose" />
+                <ScalarProperty Name="ThursDayOpen" ColumnName="ThursDayOpen" />
+                <ScalarProperty Name="ThursDayClose" ColumnName="ThursDayClose" />
+                <ScalarProperty Name="FriDayOpen" ColumnName="FriDayOpen" />
+                <ScalarProperty Name="FriDayClose" ColumnName="FriDayClose" />
+                <ScalarProperty Name="SaturDayOpen" ColumnName="SaturDayOpen" />
+                <ScalarProperty Name="SaturDayClose" ColumnName="SaturDayClose" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctors">
+            <EntityTypeMapping TypeName="WeedAngelModel.Doctor">
+              <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="TimeZoneId" ColumnName="TimeZoneId" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AvatarName" ColumnName="AvatarName" />
+                <ScalarProperty Name="AvatarPath" ColumnName="AvatarPath" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="IsHandicap" ColumnName="IsHandicap" />
+                <ScalarProperty Name="IsSecurityGuard" ColumnName="IsSecurityGuard" />
+                <ScalarProperty Name="IsCreditCards" ColumnName="IsCreditCards" />
+                <ScalarProperty Name="Is18" ColumnName="Is18" />
+                <ScalarProperty Name="Is21" ColumnName="Is21" />
+                <ScalarProperty Name="IntroBody" ColumnName="IntroBody" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pictures">
+            <EntityTypeMapping TypeName="WeedAngelModel.Picture">
+              <MappingFragment StoreEntitySet="Pictures">
+                <ScalarProperty Name="PictureId" ColumnName="PictureId" />
+                <ScalarProperty Name="PictureName" ColumnName="PictureName" />
+                <ScalarProperty Name="PicturePath" ColumnName="PicturePath" />
+                <ScalarProperty Name="DispensaryId" ColumnName="DispensaryId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="WeedAngelModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="WeedAngelModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+                <ScalarProperty Name="RequestedActivationDate" ColumnName="RequestedActivationDate" />
+                <ScalarProperty Name="ProfileImageName" ColumnName="ProfileImageName" />
+                <ScalarProperty Name="ProfileImagePath" ColumnName="ProfileImagePath" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="FavWayToGetHigh" ColumnName="FavWayToGetHigh" />
+                <ScalarProperty Name="FavDispensory" ColumnName="FavDispensory" />
+                <ScalarProperty Name="FavStrains" ColumnName="FavStrains" />
+                <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
+                <ScalarProperty Name="TellForGetHigh" ColumnName="TellForGetHigh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videos">
+            <EntityTypeMapping TypeName="WeedAngelModel.Video">
+              <MappingFragment StoreEntitySet="Video">
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="VideoName" ColumnName="VideoName" />
+                <ScalarProperty Name="VideoSource" ColumnName="VideoSource" />
+                <ScalarProperty Name="DispensaryId" ColumnName="DispensaryId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="VideoImageSrc" ColumnName="VideoImageSrc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

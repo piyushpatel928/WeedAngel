@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WeedAngelModelStoreContainer" CdmEntityContainer="WeedAngelEntities">
+    <EntitySetMapping Name="Dispensaries">
+      <EntityTypeMapping TypeName="WeedAngelModel.Dispensary">
+        <MappingFragment StoreEntitySet="Dispensary">
+          <ScalarProperty Name="DispensaryId" ColumnName="DispensaryId" />
+          <ScalarProperty Name="DispensaryName" ColumnName="DispensaryName" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="TimeZoneId" ColumnName="TimeZoneId" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AvatarName" ColumnName="AvatarName" />
+          <ScalarProperty Name="AvatarPath" ColumnName="AvatarPath" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+          <ScalarProperty Name="IntroBody" ColumnName="IntroBody" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="IsHandicap" ColumnName="IsHandicap" />
+          <ScalarProperty Name="IsSecurityGuard" ColumnName="IsSecurityGuard" />
+          <ScalarProperty Name="IsLounge" ColumnName="IsLounge" />
+          <ScalarProperty Name="IsCreditCards" ColumnName="IsCreditCards" />
+          <ScalarProperty Name="Is18" ColumnName="Is18" />
+          <ScalarProperty Name="Is21" ColumnName="Is21" />
+          <ScalarProperty Name="IsPictures" ColumnName="IsPictures" />
+          <ScalarProperty Name="IsVideos" ColumnName="IsVideos" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="SunDayOpen" ColumnName="SunDayOpen" />
+          <ScalarProperty Name="SunDayClose" ColumnName="SunDayClose" />
+          <ScalarProperty Name="MonDayOpen" ColumnName="MonDayOpen" />
+          <ScalarProperty Name="MonDayClose" ColumnName="MonDayClose" />
+          <ScalarProperty Name="TuesDayOpen" ColumnName="TuesDayOpen" />
+          <ScalarProperty Name="TuesDayClose" ColumnName="TuesDayClose" />
+          <ScalarProperty Name="WednesDayOpen" ColumnName="WednesDayOpen" />
+          <ScalarProperty Name="WednesDayClose" ColumnName="WednesDayClose" />
+          <ScalarProperty Name="ThursDayOpen" ColumnName="ThursDayOpen" />
+          <ScalarProperty Name="ThursDayClose" ColumnName="ThursDayClose" />
+          <ScalarProperty Name="FriDayOpen" ColumnName="FriDayOpen" />
+          <ScalarProperty Name="FriDayClose" ColumnName="FriDayClose" />
+          <ScalarProperty Name="SaturDayOpen" ColumnName="SaturDayOpen" />
+          <ScalarProperty Name="SaturDayClose" ColumnName="SaturDayClose" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doctors">
+      <EntityTypeMapping TypeName="WeedAngelModel.Doctor">
+        <MappingFragment StoreEntitySet="Doctor">
+          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="TimeZoneId" ColumnName="TimeZoneId" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AvatarName" ColumnName="AvatarName" />
+          <ScalarProperty Name="AvatarPath" ColumnName="AvatarPath" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="IsHandicap" ColumnName="IsHandicap" />
+          <ScalarProperty Name="IsSecurityGuard" ColumnName="IsSecurityGuard" />
+          <ScalarProperty Name="IsCreditCards" ColumnName="IsCreditCards" />
+          <ScalarProperty Name="Is18" ColumnName="Is18" />
+          <ScalarProperty Name="Is21" ColumnName="Is21" />
+          <ScalarProperty Name="IntroBody" ColumnName="IntroBody" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pictures">
+      <EntityTypeMapping TypeName="WeedAngelModel.Picture">
+        <MappingFragment StoreEntitySet="Pictures">
+          <ScalarProperty Name="PictureId" ColumnName="PictureId" />
+          <ScalarProperty Name="PictureName" ColumnName="PictureName" />
+          <ScalarProperty Name="PicturePath" ColumnName="PicturePath" />
+          <ScalarProperty Name="DispensaryId" ColumnName="DispensaryId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="WeedAngelModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="WeedAngelModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+          <ScalarProperty Name="RequestedActivationDate" ColumnName="RequestedActivationDate" />
+          <ScalarProperty Name="ProfileImageName" ColumnName="ProfileImageName" />
+          <ScalarProperty Name="ProfileImagePath" ColumnName="ProfileImagePath" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="FavWayToGetHigh" ColumnName="FavWayToGetHigh" />
+          <ScalarProperty Name="FavDispensory" ColumnName="FavDispensory" />
+          <ScalarProperty Name="FavStrains" ColumnName="FavStrains" />
+          <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
+          <ScalarProperty Name="TellForGetHigh" ColumnName="TellForGetHigh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Videos">
+      <EntityTypeMapping TypeName="WeedAngelModel.Video">
+        <MappingFragment StoreEntitySet="Video">
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+          <ScalarProperty Name="VideoName" ColumnName="VideoName" />
+          <ScalarProperty Name="VideoSource" ColumnName="VideoSource" />
+          <ScalarProperty Name="DispensaryId" ColumnName="DispensaryId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="VideoImageSrc" ColumnName="VideoImageSrc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
